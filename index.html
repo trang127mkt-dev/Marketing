@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Báo cáo Kết quả Marketing — The Mia (01/11 - 25/11/2026)</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --fg: #0f172a;
+      --muted: #64748b;
+      --sec: #f1f5f9;
+      --primary: #2563eb;
+      --primary-fg: #ffffff;
+      --success: #059669;
+      --warning: #d97706;
+      --chart1: #2563eb;
+      --chart2: #10b981;
+      --chart3: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1152px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    .header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+    .badges { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-primary { background: var(--primary); color: var(--primary-fg); }
+    .badge-sec { background: var(--sec); color: var(--fg); font-weight: 500; }
+    .muted { color: var(--muted); font-size: 12px; }
+    h1 { margin: 0 0 4px 0; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+    h2 { margin: 0; font-size: 16px; font-weight: 600; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--sec);
+      color: var(--fg);
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    @media (max-width: 1024px) { .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .grid-2 { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { body { padding: 12px; } .grid-4 { grid-template-columns: 1fr; } }
+    .kpi-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .kpi-label { font-size: 12px; font-weight: 600; color: var(--muted); }
+    .kpi-pill { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--sec); }
+    .kpi-val { font-size: 24px; font-weight: 700; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+    .bar-bg { width: 100%; height: 8px; border-radius: 999px; background: var(--sec); overflow: hidden; margin-bottom: 8px; }
+    .bar-bg-lg { height: 10px; }
+    .bar-fill { height: 100%; border-radius: 999px; }
+    .flex-between { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; font-variant-numeric: tabular-nums; }
+    th { padding: 8px; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 9px 8px; border-bottom: 1px solid var(--border); }
+    tr.total-row td { background: var(--sec); font-weight: 700; }
+    .text-right { text-align: right; }
+    .text-success { color: var(--success); }
+    .text-warning { color: var(--warning); }
+    .text-primary { color: var(--primary); }
+    .font-bold { font-weight: 700; }
+    .font-semibold { font-weight: 600; }
+    .sub-box {
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: var(--sec);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      margin-top: 12px;
+    }
+    .tab-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    ul.takeaways { margin: 8px 0 0 0; padding-left: 18px; color: var(--muted); font-size: 12px; }
+    ul.takeaways li { margin-bottom: 6px; }
+    ul.takeaways strong { color: var(--fg); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff; padding: 0; }
+      .card { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="card header">
+      <div>
+        <div class="badges">
+          <span class="badge badge-primary">THE MIA</span>
+          <span class="badge badge-sec">Kỳ báo cáo: 01/11 – 25/11/2026</span>
+          <span class="muted">Cập nhật: 25/11/2026 10:00</span>
+        </div>
+        <h1>Báo cáo Kết quả Digital Marketing — The Mia</h1>
+        <div class="muted">Nguồn số liệu: Rồng Phương Bắc Marketing Dashboard (Chi phí Ads lấy theo Tổng bảng chi tiết chiến dịch từng kênh)</div>
+      </div>
+      <div class="actions no-print">
+        <button id="copyBtn" class="btn" onclick="copyMarkdownReport()">Sao chép Markdown</button>
+        <button class="btn btn-primary" onclick="window.print()">In / Xuất PDF</button>
+      </div>
+    </header>
+
+    <!-- Top KPI Cards -->
+    <section class="grid-4">
+      <div class="card">
+        <div class="kpi-top">
+          <span class="kpi-label">DOANH THU CHỐT (THE MIA)</span>
+          <span class="kpi-pill text-warning">26,89% KPI</span>
+        </div>
+        <div class="kpi-val">218.443.708 đ</div>
+        <div class="bar-bg"><div class="bar-fill" style="width: 26.89%; background: var(--chart1);"></div></div>
+        <div class="flex-between muted">
+          <span>KPI: 812.500.000 đ</span>
+          <span>Thiếu: 594.056.292 đ</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kpi-top">
+          <span class="kpi-label">SỐ ĐƠN BÁN (SO ERP)</span>
+          <span class="kpi-pill">15,2% DS công ty</span>
+        </div>
+        <div class="kpi-val">19 đơn SO</div>
+        <div class="muted" style="line-height: 1.6;">
+          <div>• <strong style="color: var(--fg);">17 đơn</strong> thuần The Mia (16 HCM · 1 HN)</div>
+          <div>• <strong style="color: var(--fg);">2 đơn</strong> ghép The City · The Mia (HN)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kpi-top">
+          <span class="kpi-label">TỔNG CHI PHÍ ADS</span>
+          <span class="kpi-pill text-success">64,98% Ngân sách</span>
+        </div>
+        <div class="kpi-val">30.093.756 đ</div>
+        <div class="bar-bg"><div class="bar-fill" style="width: 64.98%; background: var(--chart2);"></div></div>
+        <div class="flex-between muted">
+          <span>KPI NS: 46.312.500 đ</span>
+          <span>Còn: 16.218.744 đ</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kpi-top">
+          <span class="kpi-label">HIỆU QUẢ ADS (CIR / ROAS)</span>
+          <span class="kpi-pill text-success">358 Lượt</span>
+        </div>
+        <div class="kpi-val" style="display:flex; align-items:baseline; gap:10px;">
+          <span class="text-success">13,78%</span>
+          <span style="font-size:14px; color:var(--muted);">|</span>
+          <span class="text-primary">7,26x</span>
+        </div>
+        <div class="muted" style="line-height: 1.6;">
+          <div>• CPA TB chung: <strong style="color: var(--fg);">84.061 đ</strong> / lượt</div>
+          <div>• FB Ads: 173 khách · GG Ads: 185 ch.đổi</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1 & 2 -->
+    <section class="grid-2">
+      <!-- Section 1 -->
+      <div class="card">
+        <div class="section-head">
+          <div>
+            <h2>1. Chi phí Ads vs. KPI Ngân sách từng kênh</h2>
+            <div class="muted">Đối chiếu thực chi từ bảng chi tiết chiến dịch (FB + GG)</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Kênh</th>
+                <th class="text-right">Thực chi</th>
+                <th class="text-right">KPI Ngân sách</th>
+                <th class="text-right">% Đạt NS</th>
+                <th class="text-right">Còn lại</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold">Facebook Ads <span class="muted" style="font-weight:400;">(5 CD)</span></td>
+                <td class="text-right font-semibold">11.640.231 đ</td>
+                <td class="text-right">12.187.500 đ</td>
+                <td class="text-right font-semibold text-warning">95,51%</td>
+                <td class="text-right muted">547.269 đ</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Google Ads <span class="muted" style="font-weight:400;">(6 CD)</span></td>
+                <td class="text-right font-semibold">18.453.525 đ</td>
+                <td class="text-right">34.125.000 đ</td>
+                <td class="text-right font-semibold text-primary">54,08%</td>
+                <td class="text-right muted">15.671.475 đ</td>
+              </tr>
+              <tr class="total-row">
+                <td>Tổng cộng</td>
+                <td class="text-right">30.093.756 đ</td>
+                <td class="text-right">46.312.500 đ</td>
+                <td class="text-right">64,98%</td>
+                <td class="text-right">16.218.744 đ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top: 14px;">
+          <div class="muted font-semibold" style="margin-bottom: 6px;">Biểu đồ Thực chi vs. KPI Ngân sách (Triệu VNĐ)</div>
+          <canvas id="budgetChart" style="width: 100%; display: block;" height="170"></canvas>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="card">
+        <div class="section-head">
+          <div>
+            <h2>2. Cơ cấu Doanh thu &amp; Đơn bán theo Khu vực / Sale</h2>
+            <div class="muted">Tổng doanh thu: 218.443.708 đ (19 đơn SO trên ERP)</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 12px;">
+          <div class="flex-between" style="font-size: 12px; margin-bottom: 4px;">
+            <span class="font-semibold">Hồ Chí Minh (16 đơn thuần The Mia)</span>
+            <span><strong>139.046.908 đ</strong> <span class="muted">(63,65%)</span></span>
+          </div>
+          <div class="bar-bg bar-bg-lg"><div class="bar-fill" style="width: 63.65%; background: var(--chart1);"></div></div>
+
+          <div class="flex-between" style="font-size: 12px; margin-bottom: 4px;">
+            <span class="font-semibold">Hà Nội (1 đơn thuần + 2 đơn ghép Dự án Chiya)</span>
+            <span><strong>79.396.800 đ</strong> <span class="muted">(36,35%)</span></span>
+          </div>
+          <div class="bar-bg bar-bg-lg" style="margin-bottom: 0;"><div class="bar-fill" style="width: 36.35%; background: var(--chart3);"></div></div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nhân sự Sale</th>
+                <th>Khu vực</th>
+                <th class="text-right">Số đơn</th>
+                <th class="text-right">Doanh số The Mia</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold">Lê Minh Khoa</td>
+                <td>HCM</td>
+                <td class="text-right">15 đơn</td>
+                <td class="text-right font-semibold">136.289.500 đ</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Vũ Thị Đào <span class="muted" style="font-weight:400;">(Dự án Chiya)</span></td>
+                <td>HN</td>
+                <td class="text-right">2 đơn ghép</td>
+                <td class="text-right font-semibold">72.777.000 đ</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Nguyễn Đức Minh</td>
+                <td>HN</td>
+                <td class="text-right">1 đơn</td>
+                <td class="text-right font-semibold">6.619.800 đ</td>
+              </tr>
+              <tr>
+                <td class="font-semibold">Phạm Trọng Nghĩa</td>
+                <td>HCM</td>
+                <td class="text-right">1 đơn</td>
+                <td class="text-right font-semibold">2.757.408 đ</td>
+              </tr>
+              <tr>
+                <td class="muted">Vũ Hoàng Yến (Edu)</td>
+                <td class="muted">HN</td>
+                <td class="text-right muted">0 đơn</td>
+                <td class="text-right muted">0 đ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sub-box">
+          <div class="font-semibold" style="margin-bottom: 2px;">Ghi chú đơn hàng SO (ERP)</div>
+          <div class="muted">
+            <strong style="color: var(--fg);">17 đơn</strong> thuần The Mia (16 HCM · 1 HN) + <strong style="color: var(--fg);">2 đơn</strong> ghép The City · The Mia (SO 265222, SO 265223 – dự án Chiya).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Comparison Table -->
+    <section class="card">
+      <div class="section-head">
+        <div>
+          <h2>3. Bảng so sánh Số Tin nhắn thực nhận được &amp; Số Lead có nhu cầu</h2>
+          <div class="muted">Đối chiếu giữa lượng tin nhắn thực tế (hội thoại Chatbot) và số Lead xác định có nhu cầu sau khi trò chuyện</div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="badge badge-sec">Tổng hội thoại: <strong>191</strong></span>
+          <span class="badge badge-sec text-primary">Tổng Lead: <strong>76 lần (39,79%)</strong></span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Kênh tiếp nhận</th>
+              <th class="text-right">Tin nhắn thực nhận được<br /><span style="font-weight:400;">(Hội thoại Chatbot)</span></th>
+              <th class="text-right">Số Lead có nhu cầu<br /><span style="font-weight:400;">(Sau trò chuyện)</span></th>
+              <th class="text-right">Tỷ lệ Tin nhắn → Lead</th>
+              <th>Ghi chú &amp; Đối chiếu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="font-semibold">Facebook</div>
+                <div class="muted">Fanpage The Mia - Nội thất VP hiện đại</div>
+              </td>
+              <td class="text-right">
+                <div class="font-semibold">96 hội thoại</div>
+                <div class="muted">(FB Ads: 162 tin nhắn)</div>
+              </td>
+              <td class="text-right font-bold text-primary">28 lần</td>
+              <td class="text-right">
+                <div class="font-semibold">29,17%</div>
+                <div class="muted">(17,28% trên 162 FB Ads)</div>
+              </td>
+              <td class="muted">
+                Bot thu thập trực tiếp 4 SĐT (4,2%), 60 khách đang cân nhắc (chủ yếu ghế công thái học &amp; combo setup bàn).
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="font-semibold">Zalo OA</div>
+                <div class="muted">Nội thất Rồng Phương Bắc (dùng chung)</div>
+              </td>
+              <td class="text-right font-semibold">95 hội thoại*</td>
+              <td class="text-right font-bold text-success">48 lần</td>
+              <td class="text-right font-semibold">50,53%*</td>
+              <td class="muted">
+                *Kênh Zalo OA dùng chung toàn RPB trên dashboard (chưa tách riêng từng thương hiệu); toàn kênh đạt TB 15,6 tin/chat, tỷ lệ chốt cao hơn Facebook.
+              </td>
+            </tr>
+            <tr class="total-row">
+              <td>Tổng cộng (FB + Zalo OA)</td>
+              <td class="text-right">191 hội thoại</td>
+              <td class="text-right">76 lần</td>
+              <td class="text-right">39,79%</td>
+              <td class="muted" style="font-weight:400;">Zalo OA đóng góp 63,16% tổng lượng Lead; Facebook đóng góp 36,84%.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2" style="margin-top: 14px;">
+        <div class="sub-box" style="margin-top: 0;">
+          <div class="flex-between" style="margin-bottom: 6px;">
+            <span class="font-semibold">Facebook: Tin nhắn thực vs. Lead có nhu cầu</span>
+            <span class="font-semibold text-primary">28 / 96 (29,17%)</span>
+          </div>
+          <div class="bar-bg bar-bg-lg" style="background: #e2e8f0;"><div class="bar-fill" style="width: 29.17%; background: var(--chart1);"></div></div>
+          <div class="muted">Hội thoại Chatbot: 96 · Số liệu quảng cáo FB Ads: 162 tin nhắn (+ 11 Form)</div>
+        </div>
+
+        <div class="sub-box" style="margin-top: 0;">
+          <div class="flex-between" style="margin-bottom: 6px;">
+            <span class="font-semibold">Zalo OA: Tin nhắn thực (RPB) vs. Lead The Mia</span>
+            <span class="font-semibold text-success">48 / 95 (50,53%*)</span>
+          </div>
+          <div class="bar-bg bar-bg-lg" style="background: #e2e8f0;"><div class="bar-fill" style="width: 50.53%; background: var(--chart2);"></div></div>
+          <div class="muted">*95 hội thoại là tổng lượng chat Zalo OA RPB; trong đó ghi nhận 48 Lead The Mia</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Campaigns -->
+    <section class="card">
+      <div class="section-head">
+        <div>
+          <h2>4. Chi tiết các Chiến dịch Quảng cáo (11 chiến dịch)</h2>
+          <div class="muted">Số liệu khớp 100% với tổng chi phí 30.093.756 đ trên báo cáo</div>
+        </div>
+        <div class="tab-group no-print">
+          <button onclick="switchTab('all')" id="tab-all" class="btn btn-primary">Tất cả (11)</button>
+          <button onclick="switchTab('fb')" id="tab-fb" class="btn">Facebook Ads (5)</button>
+          <button onclick="switchTab('gg')" id="tab-gg" class="btn">Google Ads (6)</button>
+        </div>
+      </div>
+
+      <div id="panel-fb" style="margin-bottom: 18px;">
+        <div class="flex-between" style="font-size: 12px; margin-bottom: 8px;">
+          <span class="font-semibold">Facebook Ads — Tài khoản RPB ADs account HCM</span>
+          <span class="muted">Tổng chi: <strong style="color:var(--fg);">11.640.231 đ</strong> | Khách: <strong style="color:var(--fg);">173</strong> | CPA TB: <strong style="color:var(--fg);">67.285 đ</strong></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tên chiến dịch</th>
+                <th class="text-right">Chi phí</th>
+                <th class="text-right">Tin nhắn</th>
+                <th class="text-right">Form Lead</th>
+                <th class="text-right">Tổng Khách</th>
+                <th class="text-right">CPA</th>
+                <th class="text-right">CTR</th>
+                <th class="text-right">Đánh giá</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>The Mia 2026-Lead-BV-Giải pháp tổng thể-Toàn quốc - 9.9.26</td>
+                <td class="text-right font-semibold">5.025.317 đ</td>
+                <td class="text-right">73</td>
+                <td class="text-right">5</td>
+                <td class="text-right font-semibold">78</td>
+                <td class="text-right">64.427 đ</td>
+                <td class="text-right">2,34%</td>
+                <td class="text-right text-success font-semibold">Tốt</td>
+              </tr>
+              <tr>
+                <td>The Mia - Cung Cấp Giải Pháp - Lead - 07.09.26</td>
+                <td class="text-right font-semibold">3.204.767 đ</td>
+                <td class="text-right">44</td>
+                <td class="text-right">5</td>
+                <td class="text-right font-semibold">49</td>
+                <td class="text-right">65.403 đ</td>
+                <td class="text-right">4,66%</td>
+                <td class="text-right text-success font-semibold">Tốt</td>
+              </tr>
+              <tr>
+                <td>The Mia - Giải pháp văn phòng - Lead - 24.09.26</td>
+                <td class="text-right font-semibold">2.461.034 đ</td>
+                <td class="text-right">28</td>
+                <td class="text-right">1</td>
+                <td class="text-right font-semibold">29</td>
+                <td class="text-right">84.863 đ</td>
+                <td class="text-right">2,44%</td>
+                <td class="text-right text-success font-semibold">Tốt</td>
+              </tr>
+              <tr>
+                <td>The Mia - Ghế lãnh đạo - 2.11</td>
+                <td class="text-right font-semibold">789.866 đ</td>
+                <td class="text-right">16</td>
+                <td class="text-right">0</td>
+                <td class="text-right font-semibold">16</td>
+                <td class="text-right">49.367 đ</td>
+                <td class="text-right">3,86%</td>
+                <td class="text-right text-success font-semibold">Tốt</td>
+              </tr>
+              <tr>
+                <td>The Mia - Ghế Boss I - Lead - 31.10</td>
+                <td class="text-right font-semibold">159.247 đ</td>
+                <td class="text-right">1</td>
+                <td class="text-right">0</td>
+                <td class="text-right font-semibold">1</td>
+                <td class="text-right">159.247 đ</td>
+                <td class="text-right">6,51%</td>
+                <td class="text-right text-warning font-semibold">Giá cao</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="panel-gg">
+        <div class="flex-between" style="font-size: 12px; margin-bottom: 8px;">
+          <span class="font-semibold">Google Ads — Tài khoản THE MIA (958-066-7486)</span>
+          <span class="muted">Tổng chi: <strong style="color:var(--fg);">18.453.525 đ</strong> | Chuyển đổi: <strong style="color:var(--fg);">185</strong> | CPA TB: <strong style="color:var(--fg);">99.749 đ</strong></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tên chiến dịch</th>
+                <th>Loại</th>
+                <th class="text-right">Chi phí</th>
+                <th class="text-right">Nhấp</th>
+                <th class="text-right">Ch.đổi</th>
+                <th class="text-right">CPA</th>
+                <th class="text-right">CTR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>The Mia - Ghế Văn Phòng - Tìm kiếm - 2.11</td>
+                <td>Tìm kiếm</td>
+                <td class="text-right font-semibold">9.472.607 đ</td>
+                <td class="text-right">589</td>
+                <td class="text-right font-semibold">92</td>
+                <td class="text-right">103.526 đ</td>
+                <td class="text-right">5,89%</td>
+              </tr>
+              <tr>
+                <td>Search - Brand Mia - Miền Nam-10122025</td>
+                <td>Tìm kiếm</td>
+                <td class="text-right font-semibold">4.048.855 đ</td>
+                <td class="text-right">351</td>
+                <td class="text-right font-semibold">11</td>
+                <td class="text-right text-warning">385.605 đ</td>
+                <td class="text-right">10,68%</td>
+              </tr>
+              <tr>
+                <td>The Mia - Video YTB - 19.11</td>
+                <td>Tạo nhu cầu</td>
+                <td class="text-right font-semibold">2.136.944 đ</td>
+                <td class="text-right">3.102</td>
+                <td class="text-right">0.0</td>
+                <td class="text-right">-</td>
+                <td class="text-right">3,97%</td>
+              </tr>
+              <tr>
+                <td>The Mia -Bàn VP-Search-Miền Bắc-10122025</td>
+                <td>Tìm kiếm</td>
+                <td class="text-right font-semibold">1.322.564 đ</td>
+                <td class="text-right">32</td>
+                <td class="text-right font-semibold">44</td>
+                <td class="text-right text-success">30.058 đ</td>
+                <td class="text-right">3,00%</td>
+              </tr>
+              <tr>
+                <td>The Mia-Ghế VP-Search-Miền Bắc-10122025</td>
+                <td>Tìm kiếm</td>
+                <td class="text-right font-semibold">1.050.501 đ</td>
+                <td class="text-right">26</td>
+                <td class="text-right font-semibold">31</td>
+                <td class="text-right text-success">33.887 đ</td>
+                <td class="text-right">2,86%</td>
+              </tr>
+              <tr>
+                <td>Search - Brand Mia - Miền Bắc-10122025</td>
+                <td>Tìm kiếm</td>
+                <td class="text-right font-semibold">422.054 đ</td>
+                <td class="text-right">92</td>
+                <td class="text-right font-semibold">8.0</td>
+                <td class="text-right">52.757 đ</td>
+                <td class="text-right">19,41%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="card">
+      <h2>5. Nhận định nhanh phục vụ báo cáo</h2>
+      <ul class="takeaways">
+        <li><strong>Tốc độ giải ngân ngân sách:</strong> Tổng chi mới đạt <strong>64,98%</strong> KPI (<strong>30,09 tr / 46,31 tr</strong>). Trong đó Facebook gần chạm trần (<strong>95,51%</strong>, còn 547k), còn Google Ads mới chạy <strong>54,08%</strong> (còn dư hơn <strong>15,67 tr</strong> cần rà soát đẩy ngân sách cho các nhóm Search hiệu quả).</li>
+        <li><strong>Tin nhắn thực &amp; Chuyển đổi sang Lead có nhu cầu:</strong> Facebook Fanpage The Mia tiếp nhận <strong>96</strong> hội thoại thực tế và chuyển đổi được <strong>28</strong> Lead có nhu cầu (<strong>29,17%</strong>). Zalo OA RPB ghi nhận <strong>95</strong> hội thoại dùng chung và mang về <strong>48</strong> Lead có nhu cầu cho The Mia (<strong>63,16%</strong> tổng Lead).</li>
+        <li><strong>Hiệu quả chuyển đổi &amp; Doanh thu:</strong> CIR đạt <strong>13,78%</strong> (ROAS <strong>7,26x</strong>), tiến độ doanh số hiện đạt <strong>26,89%</strong> KPI tháng (<strong>218,44 tr / 812,5 tr</strong>).</li>
+        <li><strong>Tối ưu chiến dịch &amp; CSKH:</strong> Giảm/tắt nhóm CPA cao (FB <em>Ghế Boss I</em>: 159k; GG <em>Brand Miền Nam</em>: 385k), dồn ngân sách vào các nhóm hiệu quả (FB <em>Giải pháp tổng thể</em>, <em>Ghế lãnh đạo</em>; GG <em>Search Miền Bắc</em>) và đẩy nhanh tốc độ Sales gọi lại SĐT từ Chatbot Facebook.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    function switchTab(tab) {
+      const fb = document.getElementById('panel-fb');
+      const gg = document.getElementById('panel-gg');
+      fb.style.display = (tab === 'all' || tab === 'fb') ? 'block' : 'none';
+      gg.style.display = (tab === 'all' || tab === 'gg') ? 'block' : 'none';
+      ['all', 'fb', 'gg'].forEach(t => {
+        document.getElementById('tab-' + t).className = (t === tab) ? 'btn btn-primary' : 'btn';
+      });
+    }
+
+    function drawBudgetChart() {
+      const canvas = document.getElementById('budgetChart');
+      if (!canvas) return;
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      const width = rect.width || 480;
+      const height = 170;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.font = '12px sans-serif';
+
+      const items = [
+        { label: 'Facebook Ads', actual: 11.640231, kpi: 12.1875, color: '#2563eb' },
+        { label: 'Google Ads', actual: 18.453525, kpi: 34.125, color: '#10b981' }
+      ];
+      const maxVal = 36;
+      const padL = 95;
+      const padR = 65;
+      const barAreaW = Math.max(120, width - padL - padR);
+
+      ctx.fillStyle = '#2563eb'; ctx.fillRect(padL, 6, 10, 10);
+      ctx.fillStyle = '#64748b'; ctx.fillText('Thực chi (FB)', padL + 15, 15);
+
+      ctx.fillStyle = '#10b981'; ctx.fillRect(padL + 105, 6, 10, 10);
+      ctx.fillStyle = '#64748b'; ctx.fillText('Thực chi (GG)', padL + 120, 15);
+
+      ctx.fillStyle = '#f1f5f9'; ctx.strokeStyle = '#cbd5e1';
+      ctx.fillRect(padL + 215, 6, 10, 10); ctx.strokeRect(padL + 215, 6, 10, 10);
+      ctx.fillStyle = '#64748b'; ctx.fillText('KPI Ngân sách', padL + 230, 15);
+
+      items.forEach((item, idx) => {
+        const yBase = 38 + idx * 62;
+        ctx.fillStyle = '#0f172a';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.fillText(item.label, 4, yBase + 22);
+
+        const kpiW = (item.kpi / maxVal) * barAreaW;
+        ctx.fillStyle = '#f1f5f9';
+        ctx.fillRect(padL, yBase, kpiW, 16);
+        ctx.strokeStyle = '#cbd5e1';
+        ctx.strokeRect(padL, yBase, kpiW, 16);
+        ctx.fillStyle = '#64748b';
+        ctx.font = '11px sans-serif';
+        ctx.fillText(item.kpi.toFixed(2) + ' tr', padL + kpiW + 6, yBase + 12);
+
+        const actW = (item.actual / maxVal) * barAreaW;
+        ctx.fillStyle = item.color;
+        ctx.fillRect(padL, yBase + 20, actW, 16);
+        ctx.fillStyle = '#0f172a';
+        ctx.font = 'bold 11px sans-serif';
+        ctx.fillText(item.actual.toFixed(2) + ' tr', padL + actW + 6, yBase + 32);
+      });
+    }
+
+    function copyMarkdownReport() {
+      const md = `# BÁO CÁO KẾT QUẢ DIGITAL MARKETING — THE MIA (01/11 – 25/11/2026)
+
+## 1. Doanh thu & Số đơn bán
+- **Tổng doanh thu (Doanh số chốt):** 218.443.708 đ (KPI: 812.500.000 đ — Đạt **26,89%**, thiếu 594.056.292 đ)
+- **Phân bổ khu vực:**
+  - HCM: 139.046.908 đ (63,65%) — Lê Minh Khoa: 136.289.500 đ; Phạm Trọng Nghĩa: 2.757.408 đ
+  - HN: 79.396.800 đ (36,35%) — Vũ Thị Đào (Dự án Chiya): 72.777.000 đ; Nguyễn Đức Minh: 6.619.800 đ
+- **Tổng số đơn bán (SO ERP):** **19 đơn** (17 đơn thuần The Mia [16 HCM, 1 HN] + 2 đơn ghép The City · The Mia [HN - Dự án Chiya])
+
+## 2. Chi phí Ads từng kênh vs. KPI Ngân sách
+| Kênh | Thực chi | KPI Ngân sách | % Đạt NS | Còn lại | Leads / Ch.đổi | CPA TB |
+|---|---:|---:|---:|---:|---:|---:|
+| Facebook Ads | 11.640.231 đ | 12.187.500 đ | 95,51% | 547.269 đ | 173 | 67.285 đ |
+| Google Ads | 18.453.525 đ | 34.125.000 đ | 54,08% | 15.671.475 đ | 185 | 99.749 đ |
+| **Tổng cộng** | **30.093.756 đ** | **46.312.500 đ** | **64,98%** | **16.218.744 đ** | **358** | **84.061 đ** |
+
+- **CIR (Ads / Doanh số):** 13,78%
+- **ROAS (Doanh số / Ads):** 7,26x
+
+## 3. Bảng so sánh Tin nhắn thực nhận được & Số Lead có nhu cầu
+| Kênh tiếp nhận | Tin nhắn thực nhận được (Hội thoại) | Số Lead có nhu cầu | Tỷ lệ Tin nhắn → Lead |
+|---|---:|---:|---:|
+| Facebook (Fanpage The Mia) | 96 hội thoại *(FB Ads: 162 tin)* | 28 lần | 29,17% |
+| Zalo OA (RPB dùng chung) | 95 hội thoại* | 48 lần | 50,53%* |
+| **Tổng cộng** | **191 hội thoại** | **76 lần** | **39,79%** |
+
+*Ghi chú: 95 hội thoại là tổng lượng chat trên kênh Zalo OA dùng chung toàn RPB (chưa tách riêng brand trên dashboard).*`;
+
+      navigator.clipboard.writeText(md).then(() => {
+        const btn = document.getElementById('copyBtn');
+        const old = btn.textContent;
+        btn.textContent = 'Đã sao chép!';
+        setTimeout(() => { btn.textContent = old; }, 2000);
+      });
+    }
+
+    window.addEventListener('load', drawBudgetChart);
+    window.addEventListener('resize', drawBudgetChart);
+  </script>
+</body>
+</html>

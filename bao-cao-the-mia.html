@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Báo cáo Kết quả Marketing — The Mia (01/11 - 25/11/2026)</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #111827 !important; }
+    }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="text-[var(--foreground)] antialiased m-0 p-4 md:p-6" style="background: radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--chart-1) 16%, transparent), transparent 48%), radial-gradient(circle at 100% 10%, color-mix(in srgb, var(--chart-3) 14%, transparent), transparent 45%), radial-gradient(circle at 80% 100%, color-mix(in srgb, var(--chart-2) 14%, transparent), transparent 50%), var(--background); background-attachment: fixed;">
+  <div class="max-w-6xl mx-auto space-y-5">
+
+    <!-- Header -->
+    <header class="border border-[var(--border)] rounded-xl p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 shadow-sm" style="background: linear-gradient(135deg, color-mix(in srgb, var(--chart-1) 14%, var(--card)) 0%, color-mix(in srgb, var(--chart-3) 10%, var(--card)) 55%, color-mix(in srgb, var(--chart-2) 10%, var(--card)) 100%);">
+      <div class="space-y-1">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[var(--primary)] text-[var(--primary-foreground)]">THE MIA</span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)]">Kỳ báo cáo: 01/11 – 25/11/2026</span>
+          <span class="text-xs text-[var(--muted-foreground)]">Cập nhật: 25/11/2026 10:00</span>
+        </div>
+        <h1 class="text-xl md:text-2xl font-bold tracking-tight">Báo cáo Kết quả Digital Marketing — The Mia</h1>
+        <p class="text-xs text-[var(--muted-foreground)]">
+          Chuẩn chỉ số theo dõi team MKT · Đối chiếu từ Rồng Phương Bắc Marketing Dashboard &amp; File ĐƠN HÀNG BÁN (SO ERP)
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-2 no-print">
+        <button id="copyBtn" onclick="copyMarkdownReport()" class="px-3 py-2 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)] hover:opacity-90 transition cursor-pointer">
+          Sao chép Markdown
+        </button>
+        <button onclick="window.print()" class="px-3 py-2 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 transition cursor-pointer">
+          In / Xuất PDF
+        </button>
+      </div>
+    </header>
+
+    <!-- 6 Core MKT Team KPIs (Hình 1) -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- 1. Mục tiêu doanh số -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-[var(--muted-foreground)]">1. MỤC TIÊU DOANH SỐ</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--warning)]">Đạt 26,89%</span>
+        </div>
+        <div class="text-2xl font-bold tabular-nums">812.500.000 đ</div>
+        <div class="w-full h-2 rounded-full bg-[var(--secondary)] overflow-hidden">
+          <div class="h-full rounded-full bg-[var(--chart-1)]" style="width: 26.89%"></div>
+        </div>
+        <div class="flex justify-between text-xs text-[var(--muted-foreground)] tabular-nums">
+          <span>Đã chốt: <strong class="text-[var(--foreground)]">218.443.708 đ</strong></span>
+          <span>Thiếu: 594.056.292 đ</span>
+        </div>
+      </div>
+
+      <!-- 2. Khu vực khách hàng -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-[var(--muted-foreground)]">2. KHU VỰC (KHÁCH HÀNG 3 MIỀN)</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--foreground)]">19 đơn SO</span>
+        </div>
+        <div class="text-2xl font-bold tabular-nums">Miền Nam 97,60%</div>
+        <div class="text-xs text-[var(--muted-foreground)] space-y-0.5 tabular-nums">
+          <div>• <strong class="text-[var(--foreground)]">Miền Nam:</strong> 213.193.008 đ (17 đơn · 130 SP)</div>
+          <div>• <strong class="text-[var(--foreground)]">Miền Trung:</strong> 2.780.700 đ (1) · <strong class="text-[var(--foreground)]">Bắc:</strong> 2.470.000 đ (1)</div>
+        </div>
+      </div>
+
+      <!-- 3. Chi phí ~ % Chi phí / Doanh thu -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-[var(--muted-foreground)]">3. CHI PHÍ ~ % CHI PHÍ / DOANH THU</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--success)]">64,98% NS</span>
+        </div>
+        <div class="flex items-baseline gap-2 tabular-nums">
+          <span class="text-2xl font-bold">30.093.756 đ</span>
+          <span class="text-base font-bold text-[var(--success)]">~ 13,78%</span>
+        </div>
+        <div class="w-full h-2 rounded-full bg-[var(--secondary)] overflow-hidden">
+          <div class="h-full rounded-full bg-[var(--chart-2)]" style="width: 64.98%"></div>
+        </div>
+        <div class="flex justify-between text-xs text-[var(--muted-foreground)] tabular-nums">
+          <span>FB: 11,64 tr · GG: 18,45 tr</span>
+          <span>KPI NS: 46.312.500 đ</span>
+        </div>
+      </div>
+
+      <!-- 4. Số Lead -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-[var(--muted-foreground)]">4. SỐ LEAD (CÓ NHU CẦU)</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--primary)]">39,79% Tin→Lead</span>
+        </div>
+        <div class="text-2xl font-bold tabular-nums">76 lần</div>
+        <div class="text-xs text-[var(--muted-foreground)] space-y-0.5 tabular-nums">
+          <div>• <strong class="text-[var(--foreground)]">Lead Facebook:</strong> 28 lần (36,84%)</div>
+          <div>• <strong class="text-[var(--foreground)]">Lead Zalo OA:</strong> 48 lần (63,16%)</div>
+        </div>
+      </div>
+
+      <!-- 5. Doanh thu báo giá -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-[var(--muted-foreground)]">5. DOANH THU BÁO GIÁ</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--primary)]">Nguyễn Đức Minh</span>
+        </div>
+        <div class="text-2xl font-bold tabular-nums">310.500.000 đ</div>
+        <div class="text-xs text-[var(--muted-foreground)] space-y-0.5 tabular-nums">
+          <div>• <strong class="text-[var(--foreground)]">Sale phụ trách:</strong> Nguyễn Đức Minh</div>
+          <div>• <strong class="text-[var(--foreground)]">Giai đoạn:</strong> 01/11 – 25/11/2026</div>
+        </div>
+      </div>
+
+      <!-- 6. Doanh thu chốt -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-medium text-[var(--muted-foreground)]">6. DOANH THU CHỐT (SO ERP)</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-[var(--secondary)] text-[var(--success)]">ROAS 7,26x</span>
+        </div>
+        <div class="text-2xl font-bold text-[var(--primary)] tabular-nums">218.443.708 đ</div>
+        <div class="text-xs text-[var(--muted-foreground)] space-y-0.5 tabular-nums">
+          <div>• <strong class="text-[var(--foreground)]">19 đơn SO</strong> (<strong class="text-[var(--foreground)]">132</strong> sản phẩm The Mia)</div>
+          <div>• Chiếm <strong class="text-[var(--foreground)]">15,2%</strong> doanh số toàn công ty</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Product Breakdown -->
+    <section class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-[var(--border)] pb-3">
+        <div>
+          <h2 class="text-base font-semibold">1. Break Doanh thu theo Sản phẩm The Mia (132 sản phẩm)</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">Tổng hợp từ 19 đơn hàng bán SO (ERP) giai đoạn 01/11 – 25/11/2026</p>
+        </div>
+        <div class="flex items-center gap-1.5 no-print">
+          <button onclick="switchProdTab('family')" id="ptab-family" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] cursor-pointer">Theo Dòng sản phẩm (13)</button>
+          <button onclick="switchProdTab('sku')" id="ptab-sku" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer">Chi tiết từng mã hàng (20)</button>
+        </div>
+      </div>
+
+      <div id="prod-family" class="overflow-x-auto">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+              <th class="py-2 pr-2 font-medium">#</th>
+              <th class="py-2 px-2 font-medium">Dòng sản phẩm (The Mia)</th>
+              <th class="py-2 px-2 font-medium text-right">Số đơn SO</th>
+              <th class="py-2 px-2 font-medium text-right">Số lượng</th>
+              <th class="py-2 px-2 font-medium text-right">Doanh thu chốt</th>
+              <th class="py-2 px-2 font-medium text-right">Tỷ trọng DT</th>
+              <th class="py-2 pl-2 font-medium" style="width:140px;">Tỷ lệ</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border)] tabular-nums">
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">1</td><td class="py-2 px-2 font-semibold">Ghế VP M1102 (D / D02 / T / T03)</td><td class="py-2 px-2 text-right">6</td><td class="py-2 px-2 text-right font-semibold">67</td><td class="py-2 px-2 text-right font-bold">87.298.000 đ</td><td class="py-2 px-2 text-right font-semibold text-[var(--primary)]">39,96%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-1)]" style="width:39.96%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">2</td><td class="py-2 px-2 font-semibold">Ghế VP M1108 (1108-01 / 1108-03)</td><td class="py-2 px-2 text-right">2</td><td class="py-2 px-2 text-right font-semibold">12</td><td class="py-2 px-2 text-right font-bold">20.167.000 đ</td><td class="py-2 px-2 text-right">9,23%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-2)]" style="width:9.23%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">3</td><td class="py-2 px-2 font-semibold">Ghế VP M1040</td><td class="py-2 px-2 text-right">1</td><td class="py-2 px-2 text-right font-semibold">10</td><td class="py-2 px-2 text-right font-bold">18.000.000 đ</td><td class="py-2 px-2 text-right">8,24%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-3)]" style="width:8.24%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">4</td><td class="py-2 px-2 font-semibold">Ghế VP M1110 D-01</td><td class="py-2 px-2 text-right">2</td><td class="py-2 px-2 text-right font-semibold">9</td><td class="py-2 px-2 text-right font-bold">17.532.000 đ</td><td class="py-2 px-2 text-right">8,03%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-4)]" style="width:8.03%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">5</td><td class="py-2 px-2 font-semibold">Ghế VP M1111-01 (Khung xám)</td><td class="py-2 px-2 text-right">1</td><td class="py-2 px-2 text-right font-semibold">7</td><td class="py-2 px-2 text-right font-bold">17.356.500 đ</td><td class="py-2 px-2 text-right">7,95%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-1)]" style="width:7.95%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">6</td><td class="py-2 px-2 font-semibold">Ghế VP M1106 (D04 / 1106F-D02)</td><td class="py-2 px-2 text-right">3</td><td class="py-2 px-2 text-right font-semibold">7</td><td class="py-2 px-2 text-right font-bold">16.690.500 đ</td><td class="py-2 px-2 text-right">7,64%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-2)]" style="width:7.64%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">7</td><td class="py-2 px-2 font-semibold">Ghế VP M1090 (Không bánh xe)</td><td class="py-2 px-2 text-right">2</td><td class="py-2 px-2 text-right font-semibold">9</td><td class="py-2 px-2 text-right font-bold">12.136.500 đ</td><td class="py-2 px-2 text-right">5,56%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-3)]" style="width:5.56%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">8</td><td class="py-2 px-2 font-semibold">Ghế VP 1105F (Có gác chân)</td><td class="py-2 px-2 text-right">1</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right font-bold">6.619.800 đ</td><td class="py-2 px-2 text-right">3,03%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-4)]" style="width:3.03%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">9</td><td class="py-2 px-2 font-semibold">Ghế VP M1104 (01 / 02)</td><td class="py-2 px-2 text-right">2</td><td class="py-2 px-2 text-right font-semibold">2</td><td class="py-2 px-2 text-right font-bold">5.655.000 đ</td><td class="py-2 px-2 text-right">2,59%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-1)]" style="width:2.59%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">10</td><td class="py-2 px-2 font-semibold">Ghế VP M1071</td><td class="py-2 px-2 text-right">2</td><td class="py-2 px-2 text-right font-semibold">3</td><td class="py-2 px-2 text-right font-bold">5.227.408 đ</td><td class="py-2 px-2 text-right">2,39%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-2)]" style="width:2.39%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">11</td><td class="py-2 px-2 font-semibold">Ghế VP M1085</td><td class="py-2 px-2 text-right">1</td><td class="py-2 px-2 text-right font-semibold">2</td><td class="py-2 px-2 text-right font-bold">5.110.000 đ</td><td class="py-2 px-2 text-right">2,34%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-3)]" style="width:2.34%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">12</td><td class="py-2 px-2 font-semibold">Ghế VP M1027</td><td class="py-2 px-2 text-right">1</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right font-bold">3.778.000 đ</td><td class="py-2 px-2 text-right">1,73%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-4)]" style="width:1.73%"></div></div></td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">13</td><td class="py-2 px-2 font-semibold">Ghế VP M1101_D - 02</td><td class="py-2 px-2 text-right">1</td><td class="py-2 px-2 text-right font-semibold">2</td><td class="py-2 px-2 text-right font-bold">2.873.000 đ</td><td class="py-2 px-2 text-right">1,32%</td><td class="py-2 pl-2"><div class="w-full h-2 rounded-full bg-[var(--secondary)]"><div class="h-full rounded-full bg-[var(--chart-1)]" style="width:1.32%"></div></div></td></tr>
+            <tr class="bg-[var(--secondary)]/40 font-bold">
+              <td class="py-2.5 pr-2"></td><td class="py-2.5 px-2">Tổng cộng (13 dòng sản phẩm)</td><td class="py-2.5 px-2 text-right">19 đơn</td><td class="py-2.5 px-2 text-right">132</td><td class="py-2.5 px-2 text-right">218.443.708 đ</td><td class="py-2.5 px-2 text-right">100%</td><td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="prod-sku" class="overflow-x-auto" style="display:none;">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+              <th class="py-2 pr-2 font-medium">#</th>
+              <th class="py-2 px-2 font-medium">Tên vật tư (Chi tiết SKU trên ERP)</th>
+              <th class="py-2 px-2 font-medium text-right">Số lượng</th>
+              <th class="py-2 px-2 font-medium text-right">Doanh thu chốt</th>
+              <th class="py-2 pl-2 font-medium text-right">Tỷ trọng</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border)] tabular-nums">
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">1</td><td class="py-2 px-2">GHẾ VP M1102_ T (M102T06A147M285CTB1CC2)</td><td class="py-2 px-2 text-right font-semibold">25</td><td class="py-2 px-2 text-right font-semibold">36.757.500 đ</td><td class="py-2 pl-2 text-right">16,83%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">2</td><td class="py-2 px-2">GHẾ VP M1102_ D (M102D06A146M210BB3PC1)</td><td class="py-2 px-2 text-right font-semibold">31</td><td class="py-2 px-2 text-right font-semibold">35.306.500 đ</td><td class="py-2 pl-2 text-right">16,16%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">3</td><td class="py-2 px-2">GHẾ VP M1040 (M04005A74NAG00BC22C0)</td><td class="py-2 px-2 text-right font-semibold">10</td><td class="py-2 px-2 text-right font-semibold">18.000.000 đ</td><td class="py-2 pl-2 text-right">8,24%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">4</td><td class="py-2 px-2">Ghế VP 1108-03 (M10805A32NAG00BC9C0)</td><td class="py-2 px-2 text-right font-semibold">11</td><td class="py-2 px-2 text-right font-semibold">17.567.000 đ</td><td class="py-2 pl-2 text-right">8,04%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">5</td><td class="py-2 px-2">Ghế VP M1110 D-01 (M110D10A30M1385CB1CC8)</td><td class="py-2 px-2 text-right font-semibold">9</td><td class="py-2 px-2 text-right font-semibold">17.532.000 đ</td><td class="py-2 pl-2 text-right">8,03%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">6</td><td class="py-2 px-2">Ghế VP M1111-01 (M111X10A90M1385CTB1CC2)- khung xám</td><td class="py-2 px-2 text-right font-semibold">7</td><td class="py-2 px-2 text-right font-semibold">17.356.500 đ</td><td class="py-2 pl-2 text-right">7,95%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">7</td><td class="py-2 px-2">Ghế VP M1106_D04 (M106D09A72M110BB3PC1)</td><td class="py-2 px-2 text-right font-semibold">6</td><td class="py-2 px-2 text-right font-semibold">13.909.800 đ</td><td class="py-2 pl-2 text-right">6,37%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">8</td><td class="py-2 px-2">Ghế VP M1090 (M09004A00NAG00BL42C0)-không bánh xe</td><td class="py-2 px-2 text-right font-semibold">9</td><td class="py-2 px-2 text-right font-semibold">12.136.500 đ</td><td class="py-2 pl-2 text-right">5,56%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">9</td><td class="py-2 px-2">GHẾ VP M1102_ T 03 (M102T05A147NAG00BC2C0)</td><td class="py-2 px-2 text-right font-semibold">6</td><td class="py-2 px-2 text-right font-semibold">7.569.000 đ</td><td class="py-2 pl-2 text-right">3,46%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">10</td><td class="py-2 px-2">Ghế VP 1105F (M10510A59M6685CB1AC1) - Có gác chân</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right font-semibold">6.619.800 đ</td><td class="py-2 pl-2 text-right">3,03%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">11</td><td class="py-2 px-2">Ghế VP M1102_ D 02 (M102D10A146M210BB4PC1)</td><td class="py-2 px-2 text-right font-semibold">4</td><td class="py-2 px-2 text-right font-semibold">6.270.000 đ</td><td class="py-2 pl-2 text-right">2,87%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">12</td><td class="py-2 px-2">Ghế VP M1071 (M07109A63M285CB1AC1)</td><td class="py-2 px-2 text-right font-semibold">3</td><td class="py-2 px-2 text-right font-semibold">5.227.408 đ</td><td class="py-2 pl-2 text-right">2,39%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">13</td><td class="py-2 px-2">Ghế VP M1085 (M08510A121M4385CTB1CC8)</td><td class="py-2 px-2 text-right font-semibold">2</td><td class="py-2 px-2 text-right font-semibold">5.110.000 đ</td><td class="py-2 pl-2 text-right">2,34%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">14</td><td class="py-2 px-2">GHẾ VP M1027 (M02709A63M485CB1AC1)</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right font-semibold">3.778.000 đ</td><td class="py-2 pl-2 text-right">1,73%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">15</td><td class="py-2 px-2">Ghế VP M1104-01 (M10410A30M1310BB3PC1)</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right font-semibold">3.090.000 đ</td><td class="py-2 pl-2 text-right">1,41%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">16</td><td class="py-2 px-2">Ghế VP M1101_D - 02 (M101D06A30M210BB3PC1)</td><td class="py-2 px-2 text-right font-semibold">2</td><td class="py-2 px-2 text-right font-semibold">2.873.000 đ</td><td class="py-2 pl-2 text-right">1,32%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">17</td><td class="py-2 px-2">Ghế VP 1106F - D02 (M106D10A12M1385CB1AC1) - Có gác chân</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right font-semibold">2.780.700 đ</td><td class="py-2 pl-2 text-right">1,27%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">18</td><td class="py-2 px-2">Ghế VP 1108-01 (M10810A73M485CB1AC1)</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right font-semibold">2.600.000 đ</td><td class="py-2 pl-2 text-right">1,19%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">19</td><td class="py-2 px-2">Ghế VP M1104-02 (M10409A30M1385CB1CC8)</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right font-semibold">2.565.000 đ</td><td class="py-2 pl-2 text-right">1,17%</td></tr>
+            <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">20</td><td class="py-2 px-2">GHẾ VP M1102_ D (M102D06A146M285CB5CC8)</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right font-semibold">1.395.000 đ</td><td class="py-2 pl-2 text-right">0,64%</td></tr>
+            <tr class="bg-[var(--secondary)]/40 font-bold">
+              <td class="py-2.5 pr-2"></td><td class="py-2.5 px-2">Tổng cộng (20 mã SKU)</td><td class="py-2.5 px-2 text-right">132</td><td class="py-2.5 px-2 text-right">218.443.708 đ</td><td class="py-2.5 pl-2 text-right">100%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 2 & 3: Budget KPI vs. Region (Customer 3 Miền + Sales) -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
+          <div>
+            <h2 class="text-base font-semibold">2. Chi phí Ads vs. KPI Ngân sách từng kênh</h2>
+            <p class="text-xs text-[var(--muted-foreground)]">Đối chiếu thực chi từ bảng chi tiết chiến dịch (FB + GG)</p>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                <th class="py-2 pr-2 font-medium">Kênh</th>
+                <th class="py-2 px-2 font-medium text-right">Thực chi</th>
+                <th class="py-2 px-2 font-medium text-right">KPI Ngân sách</th>
+                <th class="py-2 px-2 font-medium text-right">% Đạt NS</th>
+                <th class="py-2 pl-2 font-medium text-right">Còn lại</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border)] tabular-nums">
+              <tr>
+                <td class="py-2.5 pr-2 font-semibold">Facebook Ads <span class="font-normal text-[var(--muted-foreground)]">(5 CD)</span></td>
+                <td class="py-2.5 px-2 text-right font-semibold">11.640.231 đ</td>
+                <td class="py-2.5 px-2 text-right">12.187.500 đ</td>
+                <td class="py-2.5 px-2 text-right font-semibold text-[var(--warning)]">95,51%</td>
+                <td class="py-2.5 pl-2 text-right text-[var(--muted-foreground)]">547.269 đ</td>
+              </tr>
+              <tr>
+                <td class="py-2.5 pr-2 font-semibold">Google Ads <span class="font-normal text-[var(--muted-foreground)]">(6 CD)</span></td>
+                <td class="py-2.5 px-2 text-right font-semibold">18.453.525 đ</td>
+                <td class="py-2.5 px-2 text-right">34.125.000 đ</td>
+                <td class="py-2.5 px-2 text-right font-semibold text-[var(--primary)]">54,08%</td>
+                <td class="py-2.5 pl-2 text-right text-[var(--muted-foreground)]">15.671.475 đ</td>
+              </tr>
+              <tr class="bg-[var(--secondary)]/40 font-bold">
+                <td class="py-2.5 pr-2">Tổng cộng</td>
+                <td class="py-2.5 px-2 text-right">30.093.756 đ</td>
+                <td class="py-2.5 px-2 text-right">46.312.500 đ</td>
+                <td class="py-2.5 px-2 text-right">64,98%</td>
+                <td class="py-2.5 pl-2 text-right">16.218.744 đ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pt-2">
+          <div class="text-xs font-medium text-[var(--muted-foreground)] mb-2">Biểu đồ Thực chi vs. KPI Ngân sách (Triệu VNĐ)</div>
+          <canvas id="budgetChart" class="w-full" height="170"></canvas>
+        </div>
+      </div>
+
+      <!-- Section 3: Region -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+        <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
+          <div>
+            <h2 class="text-base font-semibold">3. Cơ cấu Doanh thu theo Khu vực Khách hàng (3 Miền) &amp; Sales</h2>
+            <p class="text-xs text-[var(--muted-foreground)]">Phân loại 3 miền theo Địa điểm giao hàng thực tế trong file SO ERP</p>
+          </div>
+        </div>
+
+        <div class="space-y-2.5">
+          <div class="text-xs font-semibold">A. Theo Khu vực Khách hàng (Bắc – Trung – Nam)</div>
+          <div class="space-y-1">
+            <div class="flex justify-between text-xs tabular-nums">
+              <span class="font-semibold">Miền Nam <span class="font-normal text-[var(--muted-foreground)]">(17 đơn · 130 SP: TP.HCM, Bình Dương, Vĩnh Long)</span></span>
+              <span><strong>213.193.008 đ</strong> <span class="text-[var(--muted-foreground)]">(97,60%)</span></span>
+            </div>
+            <div class="w-full h-2.5 rounded-full bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded-full bg-[var(--chart-1)]" style="width: 97.60%"></div></div>
+          </div>
+          <div class="space-y-1">
+            <div class="flex justify-between text-xs tabular-nums">
+              <span class="font-semibold">Miền Trung <span class="font-normal text-[var(--muted-foreground)]">(1 đơn · 1 SP: Đà Nẵng – SO 265220)</span></span>
+              <span><strong>2.780.700 đ</strong> <span class="text-[var(--muted-foreground)]">(1,27%)</span></span>
+            </div>
+            <div class="w-full h-2.5 rounded-full bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded-full bg-[var(--chart-2)]" style="width: 1.27%"></div></div>
+          </div>
+          <div class="space-y-1">
+            <div class="flex justify-between text-xs tabular-nums">
+              <span class="font-semibold">Miền Bắc <span class="font-normal text-[var(--muted-foreground)]">(1 đơn · 1 SP: Hà Nội – SO 265119)</span></span>
+              <span><strong>2.470.000 đ</strong> <span class="text-[var(--muted-foreground)]">(1,13%)</span></span>
+            </div>
+            <div class="w-full h-2.5 rounded-full bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded-full bg-[var(--chart-3)]" style="width: 1.13%"></div></div>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <div class="text-xs font-semibold">B. Theo Khu vực Nhân sự Sale phụ trách</div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                  <th class="py-2 pr-2 font-medium">Nhân sự Sale</th>
+                  <th class="py-2 px-2 font-medium">Team</th>
+                  <th class="py-2 px-2 font-medium text-right">Đơn SO</th>
+                  <th class="py-2 px-2 font-medium text-right">Doanh số The Mia</th>
+                  <th class="py-2 pl-2 font-medium">Địa bàn giao khách</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[var(--border)] tabular-nums">
+                <tr><td class="py-2 pr-2 font-medium">Lê Minh Khoa</td><td class="py-2 px-2">HCM</td><td class="py-2 px-2 text-right">15 đơn</td><td class="py-2 px-2 text-right font-semibold">136.289.500 đ</td><td class="py-2 pl-2 text-[var(--muted-foreground)]">13 Nam · 1 Trung · 1 Bắc</td></tr>
+                <tr><td class="py-2 pr-2 font-medium">Vũ Thị Đào <span class="text-[var(--muted-foreground)]">(Chiya)</span></td><td class="py-2 px-2">HN</td><td class="py-2 px-2 text-right">2 ghép</td><td class="py-2 px-2 text-right font-semibold">72.777.000 đ</td><td class="py-2 pl-2 text-[var(--muted-foreground)]">Vĩnh Long (Miền Nam)</td></tr>
+                <tr><td class="py-2 pr-2 font-medium">Nguyễn Đức Minh</td><td class="py-2 px-2">HN</td><td class="py-2 px-2 text-right">1 đơn</td><td class="py-2 px-2 text-right font-semibold">6.619.800 đ</td><td class="py-2 pl-2 text-[var(--muted-foreground)]">TP.HCM (Miền Nam)</td></tr>
+                <tr><td class="py-2 pr-2 font-medium">Phạm Trọng Nghĩa</td><td class="py-2 px-2">HCM</td><td class="py-2 px-2 text-right">1 đơn</td><td class="py-2 px-2 text-right font-semibold">2.757.408 đ</td><td class="py-2 pl-2 text-[var(--muted-foreground)]">TP.HCM (Miền Nam)</td></tr>
+                <tr><td class="py-2 pr-2 text-[var(--muted-foreground)]">Vũ Hoàng Yến (Edu)</td><td class="py-2 px-2 text-[var(--muted-foreground)]">HN</td><td class="py-2 px-2 text-right text-[var(--muted-foreground)]">0 đơn</td><td class="py-2 px-2 text-right text-[var(--muted-foreground)]">0 đ</td><td class="py-2 pl-2 text-[var(--muted-foreground)]">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-lg bg-[var(--secondary)]/50 border border-[var(--border)] text-xs space-y-1">
+          <div class="font-semibold">Lưu ý đối chiếu Khu vực Sales vs. Khách hàng</div>
+          <div class="text-[var(--muted-foreground)]">
+            2 đơn dự án Chiya của <strong class="text-[var(--foreground)]">Vũ Thị Đào (team HN)</strong> và 1 đơn của <strong class="text-[var(--foreground)]">Nguyễn Đức Minh (team HN)</strong> đều giao hàng tại <strong class="text-[var(--foreground)]">Miền Nam</strong> (Vĩnh Long &amp; TP.HCM), trong khi <strong class="text-[var(--foreground)]">Lê Minh Khoa (team HCM)</strong> chốt 1 đơn giao Hà Nội và 1 đơn giao Đà Nẵng.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Comparison Table -->
+    <section class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-[var(--border)] pb-3">
+        <div>
+          <h2 class="text-base font-semibold">4. Bảng so sánh Số Tin nhắn thực nhận được &amp; Số Lead có nhu cầu</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">Đối chiếu giữa lượng tin nhắn thực tế (hội thoại Chatbot) và số Lead xác định có nhu cầu sau khi trò chuyện</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs tabular-nums">
+          <span class="px-2.5 py-1 rounded-lg bg-[var(--secondary)] text-[var(--foreground)] font-medium">Tổng hội thoại: <strong>191</strong></span>
+          <span class="px-2.5 py-1 rounded-lg bg-[var(--secondary)] text-[var(--primary)] font-bold">Tổng Lead: 76 lần (39,79%)</span>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+              <th class="py-2.5 pr-3 font-medium">Kênh tiếp nhận</th>
+              <th class="py-2.5 px-3 font-medium text-right">Tin nhắn thực nhận được<br /><span class="font-normal">(Hội thoại Chatbot)</span></th>
+              <th class="py-2.5 px-3 font-medium text-right">Số Lead<br /><span class="font-normal">(Có nhu cầu)</span></th>
+              <th class="py-2.5 px-3 font-medium text-right">Tỷ lệ Tin nhắn → Lead</th>
+              <th class="py-2.5 pl-3 font-medium">Ghi chú &amp; Đối chiếu</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[var(--border)] tabular-nums">
+            <tr>
+              <td class="py-3 pr-3 font-semibold">Facebook<div class="font-normal text-[var(--muted-foreground)]">Fanpage The Mia - Nội thất VP hiện đại</div></td>
+              <td class="py-3 px-3 text-right font-semibold">96 hội thoại<div class="font-normal text-[var(--muted-foreground)]">(FB Ads: 162 tin nhắn)</div></td>
+              <td class="py-3 px-3 text-right font-bold text-[var(--primary)]">28 lần</td>
+              <td class="py-3 px-3 text-right font-semibold">29,17%<div class="font-normal text-[var(--muted-foreground)]">(17,28% trên 162 FB Ads)</div></td>
+              <td class="py-3 pl-3 text-[var(--muted-foreground)]">Bot thu thập trực tiếp 4 SĐT (4,2%), 60 khách đang cân nhắc (chủ yếu ghế công thái học &amp; combo setup bàn).</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-3 font-semibold">Zalo OA<div class="font-normal text-[var(--muted-foreground)]">Nội thất Rồng Phương Bắc (dùng chung)</div></td>
+              <td class="py-3 px-3 text-right font-semibold">95 hội thoại*</td>
+              <td class="py-3 px-3 text-right font-bold text-[var(--success)]">48 lần</td>
+              <td class="py-3 px-3 text-right font-semibold">50,53%*</td>
+              <td class="py-3 pl-3 text-[var(--muted-foreground)]">*Kênh Zalo OA dùng chung toàn RPB trên dashboard (chưa tách riêng từng thương hiệu); toàn kênh đạt TB 15,6 tin/chat, tỷ lệ chốt cao hơn Facebook.</td>
+            </tr>
+            <tr class="bg-[var(--secondary)]/40 font-bold">
+              <td class="py-3 pr-3">Tổng cộng (FB + Zalo OA)</td>
+              <td class="py-3 px-3 text-right">191 hội thoại</td>
+              <td class="py-3 px-3 text-right">76 lần</td>
+              <td class="py-3 px-3 text-right">39,79%</td>
+              <td class="py-3 pl-3 font-normal text-[var(--muted-foreground)]">Zalo OA đóng góp 63,16% tổng lượng Lead; Facebook đóng góp 36,84%.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1 tabular-nums">
+        <div class="p-3.5 rounded-lg bg-[var(--secondary)]/40 border border-[var(--border)] space-y-2">
+          <div class="flex justify-between text-xs"><span class="font-semibold">Facebook: Tin nhắn thực vs. Lead có nhu cầu</span><span class="font-semibold text-[var(--primary)]">28 / 96 (29,17%)</span></div>
+          <div class="w-full h-3 rounded-full bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded-full bg-[var(--chart-1)]" style="width: 29.17%"></div></div>
+          <div class="text-xs text-[var(--muted-foreground)]">Hội thoại Chatbot: 96 · Số liệu quảng cáo FB Ads: 162 tin nhắn (+ 11 Form)</div>
+        </div>
+        <div class="p-3.5 rounded-lg bg-[var(--secondary)]/40 border border-[var(--border)] space-y-2">
+          <div class="flex justify-between text-xs"><span class="font-semibold">Zalo OA: Tin nhắn thực (RPB) vs. Lead The Mia</span><span class="font-semibold text-[var(--success)]">48 / 95 (50,53%*)</span></div>
+          <div class="w-full h-3 rounded-full bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded-full bg-[var(--chart-2)]" style="width: 50.53%"></div></div>
+          <div class="text-xs text-[var(--muted-foreground)]">*95 hội thoại là tổng lượng chat Zalo OA RPB; trong đó ghi nhận 48 Lead The Mia</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Campaigns -->
+    <section class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-[var(--border)] pb-3">
+        <div>
+          <h2 class="text-base font-semibold">5. Chi tiết các Chiến dịch Quảng cáo (11 chiến dịch)</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">Số liệu khớp 100% với tổng chi phí 30.093.756 đ trên báo cáo</p>
+        </div>
+        <div class="flex items-center gap-1.5 no-print">
+          <button onclick="switchTab('all')" id="tab-all" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] cursor-pointer">Tất cả (11)</button>
+          <button onclick="switchTab('fb')" id="tab-fb" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer">Facebook Ads (5)</button>
+          <button onclick="switchTab('gg')" id="tab-gg" class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer">Google Ads (6)</button>
+        </div>
+      </div>
+
+      <div id="panel-fb" class="space-y-2">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-semibold">Facebook Ads — Tài khoản RPB ADs account HCM</span>
+          <span class="text-[var(--muted-foreground)] tabular-nums">Tổng chi: <strong class="text-[var(--foreground)]">11.640.231 đ</strong> | Khách: <strong class="text-[var(--foreground)]">173</strong> | CPA TB: <strong class="text-[var(--foreground)]">67.285 đ</strong></span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                <th class="py-2 pr-2 font-medium">Tên chiến dịch</th>
+                <th class="py-2 px-2 font-medium text-right">Chi phí</th>
+                <th class="py-2 px-2 font-medium text-right">Tin nhắn</th>
+                <th class="py-2 px-2 font-medium text-right">Form Lead</th>
+                <th class="py-2 px-2 font-medium text-right">Tổng Khách</th>
+                <th class="py-2 px-2 font-medium text-right">CPA</th>
+                <th class="py-2 px-2 font-medium text-right">CTR</th>
+                <th class="py-2 pl-2 font-medium text-right">Đánh giá</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border)] tabular-nums">
+              <tr><td class="py-2 pr-2">The Mia 2026-Lead-BV-Giải pháp tổng thể-Toàn quốc - 9.9.26</td><td class="py-2 px-2 text-right font-medium">5.025.317 đ</td><td class="py-2 px-2 text-right">73</td><td class="py-2 px-2 text-right">5</td><td class="py-2 px-2 text-right font-semibold">78</td><td class="py-2 px-2 text-right">64.427 đ</td><td class="py-2 px-2 text-right">2,34%</td><td class="py-2 pl-2 text-right text-[var(--success)] font-medium">Tốt</td></tr>
+              <tr><td class="py-2 pr-2">The Mia - Cung Cấp Giải Pháp - Lead - 07.09.26</td><td class="py-2 px-2 text-right font-medium">3.204.767 đ</td><td class="py-2 px-2 text-right">44</td><td class="py-2 px-2 text-right">5</td><td class="py-2 px-2 text-right font-semibold">49</td><td class="py-2 px-2 text-right">65.403 đ</td><td class="py-2 px-2 text-right">4,66%</td><td class="py-2 pl-2 text-right text-[var(--success)] font-medium">Tốt</td></tr>
+              <tr><td class="py-2 pr-2">The Mia - Giải pháp văn phòng - Lead - 24.09.26</td><td class="py-2 px-2 text-right font-medium">2.461.034 đ</td><td class="py-2 px-2 text-right">28</td><td class="py-2 px-2 text-right">1</td><td class="py-2 px-2 text-right font-semibold">29</td><td class="py-2 px-2 text-right">84.863 đ</td><td class="py-2 px-2 text-right">2,44%</td><td class="py-2 pl-2 text-right text-[var(--success)] font-medium">Tốt</td></tr>
+              <tr><td class="py-2 pr-2">The Mia - Ghế lãnh đạo - 2.11</td><td class="py-2 px-2 text-right font-medium">789.866 đ</td><td class="py-2 px-2 text-right">16</td><td class="py-2 px-2 text-right">0</td><td class="py-2 px-2 text-right font-semibold">16</td><td class="py-2 px-2 text-right">49.367 đ</td><td class="py-2 px-2 text-right">3,86%</td><td class="py-2 pl-2 text-right text-[var(--success)] font-medium">Tốt</td></tr>
+              <tr><td class="py-2 pr-2">The Mia - Ghế Boss I - Lead - 31.10</td><td class="py-2 px-2 text-right font-medium">159.247 đ</td><td class="py-2 px-2 text-right">1</td><td class="py-2 px-2 text-right">0</td><td class="py-2 px-2 text-right font-semibold">1</td><td class="py-2 px-2 text-right">159.247 đ</td><td class="py-2 px-2 text-right">6,51%</td><td class="py-2 pl-2 text-right text-[var(--warning)] font-medium">Giá cao</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="panel-gg" class="space-y-2 pt-2">
+        <div class="flex items-center justify-between text-xs">
+          <span class="font-semibold">Google Ads — Tài khoản THE MIA (958-066-7486)</span>
+          <span class="text-[var(--muted-foreground)] tabular-nums">Tổng chi: <strong class="text-[var(--foreground)]">18.453.525 đ</strong> | Chuyển đổi: <strong class="text-[var(--foreground)]">185</strong> | CPA TB: <strong class="text-[var(--foreground)]">99.749 đ</strong></span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+                <th class="py-2 pr-2 font-medium">Tên chiến dịch</th>
+                <th class="py-2 px-2 font-medium">Loại</th>
+                <th class="py-2 px-2 font-medium text-right">Chi phí</th>
+                <th class="py-2 px-2 font-medium text-right">Nhấp</th>
+                <th class="py-2 px-2 font-medium text-right">Ch.đổi</th>
+                <th class="py-2 px-2 font-medium text-right">CPA</th>
+                <th class="py-2 pl-2 font-medium text-right">CTR</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border)] tabular-nums">
+              <tr><td class="py-2 pr-2">The Mia - Ghế Văn Phòng - Tìm kiếm - 2.11</td><td class="py-2 px-2">Tìm kiếm</td><td class="py-2 px-2 text-right font-medium">9.472.607 đ</td><td class="py-2 px-2 text-right">589</td><td class="py-2 px-2 text-right font-semibold">92</td><td class="py-2 px-2 text-right">103.526 đ</td><td class="py-2 pl-2 text-right">5,89%</td></tr>
+              <tr><td class="py-2 pr-2">Search - Brand Mia - Miền Nam-10122025</td><td class="py-2 px-2">Tìm kiếm</td><td class="py-2 px-2 text-right font-medium">4.048.855 đ</td><td class="py-2 px-2 text-right">351</td><td class="py-2 px-2 text-right font-semibold">11</td><td class="py-2 px-2 text-right text-[var(--warning)]">385.605 đ</td><td class="py-2 pl-2 text-right">10,68%</td></tr>
+              <tr><td class="py-2 pr-2">The Mia - Video YTB - 19.11</td><td class="py-2 px-2">Tạo nhu cầu</td><td class="py-2 px-2 text-right font-medium">2.136.944 đ</td><td class="py-2 px-2 text-right">3.102</td><td class="py-2 px-2 text-right">0.0</td><td class="py-2 px-2 text-right">-</td><td class="py-2 pl-2 text-right">3,97%</td></tr>
+              <tr><td class="py-2 pr-2">The Mia -Bàn VP-Search-Miền Bắc-10122025</td><td class="py-2 px-2">Tìm kiếm</td><td class="py-2 px-2 text-right font-medium">1.322.564 đ</td><td class="py-2 px-2 text-right">32</td><td class="py-2 px-2 text-right font-semibold">44</td><td class="py-2 px-2 text-right text-[var(--success)]">30.058 đ</td><td class="py-2 pl-2 text-right">3,00%</td></tr>
+              <tr><td class="py-2 pr-2">The Mia-Ghế VP-Search-Miền Bắc-10122025</td><td class="py-2 px-2">Tìm kiếm</td><td class="py-2 px-2 text-right font-medium">1.050.501 đ</td><td class="py-2 px-2 text-right">26</td><td class="py-2 px-2 text-right font-semibold">31</td><td class="py-2 px-2 text-right text-[var(--success)]">33.887 đ</td><td class="py-2 pl-2 text-right">2,86%</td></tr>
+              <tr><td class="py-2 pr-2">Search - Brand Mia - Miền Bắc-10122025</td><td class="py-2 px-2">Tìm kiếm</td><td class="py-2 px-2 text-right font-medium">422.054 đ</td><td class="py-2 px-2 text-right">92</td><td class="py-2 px-2 text-right font-semibold">8.0</td><td class="py-2 px-2 text-right">52.757 đ</td><td class="py-2 pl-2 text-right">19,41%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 space-y-2">
+      <h2 class="text-base font-semibold">6. Nhận định nhanh phục vụ báo cáo</h2>
+      <ul class="text-xs text-[var(--muted-foreground)] space-y-1.5 list-disc pl-5">
+        <li><strong class="text-[var(--foreground)]">Cơ cấu sản phẩm &amp; Khu vực khách hàng:</strong> Dòng ghế <strong class="text-[var(--foreground)]">M1102</strong> dẫn đầu doanh thu với <strong class="text-[var(--foreground)]">87,30 tr</strong> (67 cái, chiếm <strong class="text-[var(--foreground)]">39,96%</strong>), theo sau là M1108 (20,17 tr), M1040 (18,00 tr), M1110 (17,53 tr) và M1111 (17,36 tr). Xét theo địa chỉ giao hàng thực tế, khách hàng <strong class="text-[var(--foreground)]">Miền Nam chiếm 97,60%</strong> doanh thu (213,19 tr / 17 đơn), Miền Trung 1,27% (Đà Nẵng) và Miền Bắc 1,13% (Hà Nội).</li>
+        <li><strong class="text-[var(--foreground)]">Tốc độ giải ngân ngân sách &amp; CIR:</strong> Tổng chi <strong class="text-[var(--foreground)]">30.093.756 đ</strong> (đạt <strong class="text-[var(--foreground)]">64,98%</strong> KPI ngân sách 46,31 tr), tỷ lệ chi phí / doanh thu đạt <strong class="text-[var(--foreground)]">13,78%</strong> (ROAS <strong class="text-[var(--foreground)]">7,26x</strong>). Facebook đã tiêu <strong class="text-[var(--foreground)]">95,51%</strong> ngân sách, trong khi Google Ads mới chạy <strong class="text-[var(--foreground)]">54,08%</strong> (còn dư 15,67 tr).</li>
+        <li><strong class="text-[var(--foreground)]">Tin nhắn thực &amp; Chuyển đổi sang Lead có nhu cầu:</strong> Facebook Fanpage The Mia tiếp nhận <strong class="text-[var(--foreground)]">96</strong> hội thoại thực tế và chuyển đổi được <strong class="text-[var(--foreground)]">28</strong> Lead có nhu cầu (<strong class="text-[var(--foreground)]">29,17%</strong>). Zalo OA RPB ghi nhận <strong class="text-[var(--foreground)]">95</strong> hội thoại dùng chung và mang về <strong class="text-[var(--foreground)]">48</strong> Lead có nhu cầu cho The Mia (<strong class="text-[var(--foreground)]">63,16%</strong> tổng Lead).</li>
+        <li><strong class="text-[var(--foreground)]">Doanh thu báo giá &amp; Chốt đơn:</strong> Doanh thu báo giá ghi nhận <strong class="text-[var(--foreground)]">310.500.000 đ</strong> (Sale: <strong class="text-[var(--foreground)]">Nguyễn Đức Minh</strong>); tổng doanh thu chốt đạt <strong class="text-[var(--foreground)]">218.443.708 đ</strong> (<strong class="text-[var(--foreground)]">26,89%</strong> KPI tháng 812,5 tr).</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    function switchProdTab(tab) {
+      document.getElementById('prod-family').style.display = (tab === 'family') ? 'block' : 'none';
+      document.getElementById('prod-sku').style.display = (tab === 'sku') ? 'block' : 'none';
+      document.getElementById('ptab-family').className = (tab === 'family')
+        ? 'px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] cursor-pointer'
+        : 'px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer';
+      document.getElementById('ptab-sku').className = (tab === 'sku')
+        ? 'px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] cursor-pointer'
+        : 'px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer';
+    }
+
+    function switchTab(tab) {
+      const fb = document.getElementById('panel-fb');
+      const gg = document.getElementById('panel-gg');
+      fb.style.display = (tab === 'all' || tab === 'fb') ? 'block' : 'none';
+      gg.style.display = (tab === 'all' || tab === 'gg') ? 'block' : 'none';
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = 'tab-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--secondary)] text-[var(--secondary-foreground)] cursor-pointer';
+      });
+      document.getElementById('tab-' + tab).className = 'tab-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-[var(--primary)] text-[var(--primary-foreground)] cursor-pointer';
+    }
+
+    function drawBudgetChart() {
+      const canvas = document.getElementById('budgetChart');
+      if (!canvas) return;
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      const width = rect.width || 480;
+      const height = 170;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+
+      const cs = getComputedStyle(document.documentElement);
+      const fg = cs.getPropertyValue('--foreground').trim() || '#e5e7eb';
+      const muted = cs.getPropertyValue('--muted-foreground').trim() || '#9ca3af';
+      const border = cs.getPropertyValue('--border').trim() || '#374151';
+      const c1 = cs.getPropertyValue('--chart-1').trim() || '#3b82f6';
+      const c2 = cs.getPropertyValue('--chart-2').trim() || '#10b981';
+      const sec = cs.getPropertyValue('--secondary').trim() || '#334155';
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.font = '12px sans-serif';
+
+      const items = [
+        { label: 'Facebook Ads', actual: 11.640231, kpi: 12.1875, color: c1 },
+        { label: 'Google Ads', actual: 18.453525, kpi: 34.125, color: c2 }
+      ];
+      const maxVal = 36;
+      const padL = 95;
+      const padR = 65;
+      const barAreaW = Math.max(120, width - padL - padR);
+
+      ctx.fillStyle = c1; ctx.fillRect(padL, 6, 10, 10);
+      ctx.fillStyle = muted; ctx.fillText('Thực chi (FB)', padL + 15, 15);
+      ctx.fillStyle = c2; ctx.fillRect(padL + 105, 6, 10, 10);
+      ctx.fillStyle = muted; ctx.fillText('Thực chi (GG)', padL + 120, 15);
+      ctx.fillStyle = sec; ctx.strokeStyle = border; ctx.fillRect(padL + 215, 6, 10, 10); ctx.strokeRect(padL + 215, 6, 10, 10);
+      ctx.fillStyle = muted; ctx.fillText('KPI Ngân sách', padL + 230, 15);
+
+      items.forEach((item, idx) => {
+        const yBase = 38 + idx * 62;
+        ctx.fillStyle = fg; ctx.font = 'bold 12px sans-serif';
+        ctx.fillText(item.label, 4, yBase + 22);
+
+        const kpiW = (item.kpi / maxVal) * barAreaW;
+        ctx.fillStyle = sec; ctx.fillRect(padL, yBase, kpiW, 16);
+        ctx.strokeStyle = border; ctx.strokeRect(padL, yBase, kpiW, 16);
+        ctx.fillStyle = muted; ctx.font = '11px sans-serif';
+        ctx.fillText(item.kpi.toFixed(2) + ' tr', padL + kpiW + 6, yBase + 12);
+
+        const actW = (item.actual / maxVal) * barAreaW;
+        ctx.fillStyle = item.color; ctx.fillRect(padL, yBase + 20, actW, 16);
+        ctx.fillStyle = fg; ctx.font = 'bold 11px sans-serif';
+        ctx.fillText(item.actual.toFixed(2) + ' tr', padL + actW + 6, yBase + 32);
+      });
+    }
+
+    function copyMarkdownReport() {
+      const md = `# BÁO CÁO KẾT QUẢ DIGITAL MARKETING — THE MIA (01/11 – 25/11/2026)
+
+## Tổng quan chỉ số team MKT theo dõi
+- **Mục tiêu doanh số:** 812.500.000 đ (Đạt **26,89%**, thiếu 594.056.292 đ)
+- **Khu vực khách hàng (3 miền):** Miền Nam: 213.193.008 đ (97,60% - 17 đơn) | Miền Trung: 2.780.700 đ (1,27% - 1 đơn) | Miền Bắc: 2.470.000 đ (1,13% - 1 đơn)
+- **Chi phí Ads ~ % Chi phí / Doanh thu (CIR):** 30.093.756 đ ~ **13,78%** (KPI ngân sách: 46.312.500 đ — đạt 64,98%)
+- **Số Lead (Có nhu cầu):** **76 lần** (Facebook: 28 lần · Zalo OA: 48 lần)
+- **Doanh thu báo giá:** **310.500.000 đ** (Sale: Nguyễn Đức Minh)
+- **Doanh thu chốt:** **218.443.708 đ** (19 đơn SO · 132 sản phẩm · ROAS 7,26x)
+
+## 1. Break Doanh thu theo Dòng sản phẩm
+| Dòng sản phẩm | Số đơn | Số lượng | Doanh thu chốt | Tỷ trọng |
+|---|---:|---:|---:|---:|
+| Ghế VP M1102 (D / D02 / T / T03) | 6 | 67 | 87.298.000 đ | 39,96% |
+| Ghế VP M1108 (1108-01 / 1108-03) | 2 | 12 | 20.167.000 đ | 9,23% |
+| Ghế VP M1040 | 1 | 10 | 18.000.000 đ | 8,24% |
+| Ghế VP M1110 D-01 | 2 | 9 | 17.532.000 đ | 8,03% |
+| Ghế VP M1111-01 (Khung xám) | 1 | 7 | 17.356.500 đ | 7,95% |
+| Ghế VP M1106 (D04 / 1106F-D02) | 3 | 7 | 16.690.500 đ | 7,64% |
+| Ghế VP M1090 (Không bánh xe) | 2 | 9 | 12.136.500 đ | 5,56% |
+| Ghế VP 1105F (Có gác chân) | 1 | 1 | 6.619.800 đ | 3,03% |
+| Ghế VP M1104 (01 / 02) | 2 | 2 | 5.655.000 đ | 2,59% |
+| Ghế VP M1071 | 2 | 3 | 5.227.408 đ | 2,39% |
+| Ghế VP M1085 | 1 | 2 | 5.110.000 đ | 2,34% |
+| Ghế VP M1027 | 1 | 1 | 3.778.000 đ | 1,73% |
+| Ghế VP M1101_D - 02 | 1 | 2 | 2.873.000 đ | 1,32% |
+| **Tổng cộng** | **19** | **132** | **218.443.708 đ** | **100%** |
+
+## 2. Chi phí Ads từng kênh vs. KPI Ngân sách
+| Kênh | Thực chi | KPI Ngân sách | % Đạt NS | Còn lại |
+|---|---:|---:|---:|---:|
+| Facebook Ads | 11.640.231 đ | 12.187.500 đ | 95,51% | 547.269 đ |
+| Google Ads | 18.453.525 đ | 34.125.000 đ | 54,08% | 15.671.475 đ |
+| **Tổng cộng** | **30.093.756 đ** | **46.312.500 đ** | **64,98%** | **16.218.744 đ** |
+
+## 3. So sánh Tin nhắn thực nhận được & Số Lead có nhu cầu
+| Kênh tiếp nhận | Tin nhắn thực (Hội thoại) | Số Lead có nhu cầu | Tỷ lệ Tin nhắn → Lead |
+|---|---:|---:|---:|
+| Facebook (Fanpage The Mia) | 96 hội thoại *(FB Ads: 162 tin)* | 28 lần | 29,17% |
+| Zalo OA (RPB dùng chung) | 95 hội thoại* | 48 lần | 50,53%* |
+| **Tổng cộng** | **191 hội thoại** | **76 lần** | **39,79%** |`;
+
+      navigator.clipboard.writeText(md).then(() => {
+        const btn = document.getElementById('copyBtn');
+        const old = btn.textContent;
+        btn.textContent = 'Đã sao chép!';
+        setTimeout(() => { btn.textContent = old; }, 2000);
+      });
+    }
+
+    window.addEventListener('load', drawBudgetChart);
+    window.addEventListener('resize', drawBudgetChart);
+    window.addEventListener('themechange', drawBudgetChart);
+  </script>
+</body>
+</html>

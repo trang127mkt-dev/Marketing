@@ -19,27 +19,47 @@
       --chart1: #2563eb;
       --chart2: #10b981;
       --chart3: #0ea5e9;
+      --chart4: #8b5cf6;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 20px;
-      background: var(--bg);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.14), transparent 45%),
+        radial-gradient(circle at 100% 15%, rgba(14, 165, 233, 0.14), transparent 45%),
+        radial-gradient(circle at 80% 100%, rgba(16, 185, 129, 0.12), transparent 50%),
+        linear-gradient(135deg, #eef2ff 0%, #f0f9ff 48%, #ecfdf5 100%);
+      background-attachment: fixed;
       color: var(--fg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       font-size: 14px;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 1152px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .container { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 14px;
       padding: 20px;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
     }
-    .header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+    .header {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #0ea5e9 100%);
+      border: none;
+      color: #ffffff;
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.22);
+    }
+    .header .muted { color: rgba(255, 255, 255, 0.85); }
+    .header .badge-primary { background: rgba(255, 255, 255, 0.22); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.35); }
+    .header .badge-sec { background: rgba(255, 255, 255, 0.14); color: #ffffff; }
+    .header .btn { background: rgba(255, 255, 255, 0.16); color: #ffffff; border-color: rgba(255, 255, 255, 0.3); }
+    .header .btn-primary { background: #ffffff; color: #1d4ed8; border-color: #ffffff; }
     .badges { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 6px; }
     .badge {
       display: inline-block;
@@ -53,6 +73,7 @@
     .muted { color: var(--muted); font-size: 12px; }
     h1 { margin: 0 0 4px 0; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
     h2 { margin: 0; font-size: 16px; font-weight: 600; }
+    h3 { margin: 0 0 8px 0; font-size: 13px; font-weight: 600; color: var(--fg); }
     .actions { display: flex; flex-wrap: wrap; gap: 8px; }
     .btn {
       padding: 8px 14px;
@@ -67,14 +88,14 @@
     }
     .btn:hover { opacity: 0.88; }
     .btn-primary { background: var(--primary); color: var(--primary-fg); border-color: var(--primary); }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-    @media (max-width: 1024px) { .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .grid-2 { grid-template-columns: 1fr; } }
-    @media (max-width: 640px) { body { padding: 12px; } .grid-4 { grid-template-columns: 1fr; } }
+    @media (max-width: 1024px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .grid-2 { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { body { padding: 12px; } .grid-3 { grid-template-columns: 1fr; } }
     .kpi-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .kpi-label { font-size: 12px; font-weight: 600; color: var(--muted); }
-    .kpi-pill { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--sec); }
-    .kpi-val { font-size: 24px; font-weight: 700; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+    .kpi-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; }
+    .kpi-pill { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 6px; background: var(--sec); white-space: nowrap; }
+    .kpi-val { font-size: 23px; font-weight: 700; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
     .bar-bg { width: 100%; height: 8px; border-radius: 999px; background: var(--sec); overflow: hidden; margin-bottom: 8px; }
     .bar-bg-lg { height: 10px; }
     .bar-fill { height: 100%; border-radius: 999px; }
@@ -105,8 +126,10 @@
     ul.takeaways strong { color: var(--fg); }
     @media print {
       .no-print { display: none !important; }
-      body { background: #ffffff; padding: 0; }
-      .card { box-shadow: none; break-inside: avoid; }
+      body { background: #ffffff !important; padding: 0; }
+      .card { box-shadow: none; break-inside: avoid; background: #ffffff !important; }
+      .header { background: #ffffff !important; color: #0f172a !important; border: 1px solid #e2e8f0 !important; }
+      .header .muted, .header .badge-primary, .header .badge-sec { color: #0f172a !important; background: #f1f5f9 !important; }
     }
   </style>
 </head>
@@ -122,7 +145,7 @@
           <span class="muted">Cập nhật: 25/11/2026 10:00</span>
         </div>
         <h1>Báo cáo Kết quả Digital Marketing — The Mia</h1>
-        <div class="muted">Nguồn số liệu: Rồng Phương Bắc Marketing Dashboard (Chi phí Ads lấy theo Tổng bảng chi tiết chiến dịch từng kênh)</div>
+        <div class="muted">Chuẩn chỉ số theo dõi team MKT · Đối chiếu từ Rồng Phương Bắc Marketing Dashboard &amp; File ĐƠN HÀNG BÁN (SO ERP)</div>
       </div>
       <div class="actions no-print">
         <button id="copyBtn" class="btn" onclick="copyMarkdownReport()">Sao chép Markdown</button>
@@ -130,70 +153,302 @@
       </div>
     </header>
 
-    <!-- Top KPI Cards -->
-    <section class="grid-4">
+    <!-- Section 0: 6 Core MKT Team KPIs (Hình 1) -->
+    <section class="grid-3">
+      <!-- 1. Mục tiêu doanh số -->
       <div class="card">
         <div class="kpi-top">
-          <span class="kpi-label">DOANH THU CHỐT (THE MIA)</span>
-          <span class="kpi-pill text-warning">26,89% KPI</span>
+          <span class="kpi-label">1. Mục tiêu doanh số</span>
+          <span class="kpi-pill text-warning">Đạt 26,89%</span>
         </div>
-        <div class="kpi-val">218.443.708 đ</div>
+        <div class="kpi-val">812.500.000 đ</div>
         <div class="bar-bg"><div class="bar-fill" style="width: 26.89%; background: var(--chart1);"></div></div>
         <div class="flex-between muted">
-          <span>KPI: 812.500.000 đ</span>
+          <span>Đã chốt: <strong style="color:var(--fg);">218.443.708 đ</strong></span>
           <span>Thiếu: 594.056.292 đ</span>
         </div>
       </div>
 
+      <!-- 2. Khu vực khách hàng -->
       <div class="card">
         <div class="kpi-top">
-          <span class="kpi-label">SỐ ĐƠN BÁN (SO ERP)</span>
-          <span class="kpi-pill">15,2% DS công ty</span>
+          <span class="kpi-label">2. Khu vực (Khách hàng 3 miền)</span>
+          <span class="kpi-pill">19 đơn SO</span>
         </div>
-        <div class="kpi-val">19 đơn SO</div>
-        <div class="muted" style="line-height: 1.6;">
-          <div>• <strong style="color: var(--fg);">17 đơn</strong> thuần The Mia (16 HCM · 1 HN)</div>
-          <div>• <strong style="color: var(--fg);">2 đơn</strong> ghép The City · The Mia (HN)</div>
+        <div class="kpi-val">Miền Nam 97,60%</div>
+        <div class="muted" style="line-height: 1.65;">
+          <div>• <strong style="color: var(--fg);">Miền Nam:</strong> 213.193.008 đ (17 đơn · 130 SP)</div>
+          <div>• <strong style="color: var(--fg);">Miền Trung:</strong> 2.780.700 đ (1 đơn · 1 SP) · <strong style="color: var(--fg);">Bắc:</strong> 2.470.000 đ (1 đơn · 1 SP)</div>
         </div>
       </div>
 
+      <!-- 3. Chi phí ~ % Chi phí / Doanh thu -->
       <div class="card">
         <div class="kpi-top">
-          <span class="kpi-label">TỔNG CHI PHÍ ADS</span>
-          <span class="kpi-pill text-success">64,98% Ngân sách</span>
+          <span class="kpi-label">3. Chi phí ~ % Chi phí / Doanh thu</span>
+          <span class="kpi-pill text-success">64,98% NS</span>
         </div>
-        <div class="kpi-val">30.093.756 đ</div>
+        <div class="kpi-val" style="display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;">
+          <span>30.093.756 đ</span>
+          <span class="text-success" style="font-size:17px;">~ 13,78%</span>
+        </div>
         <div class="bar-bg"><div class="bar-fill" style="width: 64.98%; background: var(--chart2);"></div></div>
         <div class="flex-between muted">
+          <span>FB: 11,64 tr · GG: 18,45 tr</span>
           <span>KPI NS: 46.312.500 đ</span>
-          <span>Còn: 16.218.744 đ</span>
         </div>
       </div>
 
+      <!-- 4. Số Lead (Có nhu cầu) -->
       <div class="card">
         <div class="kpi-top">
-          <span class="kpi-label">HIỆU QUẢ ADS (CIR / ROAS)</span>
-          <span class="kpi-pill text-success">358 Lượt</span>
+          <span class="kpi-label">4. Số Lead (Có nhu cầu)</span>
+          <span class="kpi-pill text-primary">39,79% Tin→Lead</span>
         </div>
-        <div class="kpi-val" style="display:flex; align-items:baseline; gap:10px;">
-          <span class="text-success">13,78%</span>
-          <span style="font-size:14px; color:var(--muted);">|</span>
-          <span class="text-primary">7,26x</span>
+        <div class="kpi-val">76 lần</div>
+        <div class="muted" style="line-height: 1.65;">
+          <div>• <strong style="color: var(--fg);">Lead Facebook:</strong> 28 lần (36,84%)</div>
+          <div>• <strong style="color: var(--fg);">Lead Zalo OA:</strong> 48 lần (63,16%)</div>
         </div>
-        <div class="muted" style="line-height: 1.6;">
-          <div>• CPA TB chung: <strong style="color: var(--fg);">84.061 đ</strong> / lượt</div>
-          <div>• FB Ads: 173 khách · GG Ads: 185 ch.đổi</div>
+      </div>
+
+      <!-- 5. Doanh thu báo giá -->
+      <div class="card">
+        <div class="kpi-top">
+          <span class="kpi-label">5. Doanh thu báo giá</span>
+          <span class="kpi-pill text-primary">Nguyễn Đức Minh</span>
+        </div>
+        <div class="kpi-val">310.500.000 đ</div>
+        <div class="muted" style="line-height: 1.65;">
+          <div>• <strong style="color: var(--fg);">Sale phụ trách:</strong> Nguyễn Đức Minh</div>
+          <div>• <strong style="color: var(--fg);">Giai đoạn:</strong> 01/11 – 25/11/2026</div>
+        </div>
+      </div>
+
+      <!-- 6. Doanh thu chốt -->
+      <div class="card">
+        <div class="kpi-top">
+          <span class="kpi-label">6. Doanh thu chốt (SO ERP)</span>
+          <span class="kpi-pill text-success">ROAS 7,26x</span>
+        </div>
+        <div class="kpi-val text-primary">218.443.708 đ</div>
+        <div class="muted" style="line-height: 1.65;">
+          <div>• <strong style="color: var(--fg);">19 đơn SO</strong> (<strong style="color: var(--fg);">132</strong> sản phẩm The Mia)</div>
+          <div>• Chiếm <strong style="color: var(--fg);">15,2%</strong> doanh số toàn công ty</div>
         </div>
       </div>
     </section>
 
-    <!-- Section 1 & 2 -->
+    <!-- Section 1: Product Breakdown (Break theo Sản phẩm) -->
+    <section class="card">
+      <div class="section-head">
+        <div>
+          <h2>1. Break Doanh thu theo Sản phẩm The Mia (132 sản phẩm)</h2>
+          <div class="muted">Tổng hợp từ 19 đơn hàng bán SO (ERP) giai đoạn 01/11 – 25/11/2026</div>
+        </div>
+        <div class="tab-group no-print">
+          <button onclick="switchProdTab('family')" id="ptab-family" class="btn btn-primary">Theo Dòng sản phẩm (13)</button>
+          <button onclick="switchProdTab('sku')" id="ptab-sku" class="btn">Chi tiết từng mã hàng (20)</button>
+        </div>
+      </div>
+
+      <!-- Product Family Table -->
+      <div id="prod-family" class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Dòng sản phẩm (The Mia)</th>
+              <th class="text-right">Số đơn SO</th>
+              <th class="text-right">Số lượng</th>
+              <th class="text-right">Doanh thu chốt</th>
+              <th class="text-right">Tỷ trọng DT</th>
+              <th style="width: 140px;">Tỷ lệ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="muted">1</td>
+              <td class="font-semibold">Ghế VP M1102 (D / D02 / T / T03)</td>
+              <td class="text-right">6</td>
+              <td class="text-right font-semibold">67</td>
+              <td class="text-right font-bold">87.298.000 đ</td>
+              <td class="text-right font-semibold text-primary">39,96%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:39.96%; background:var(--chart1);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">2</td>
+              <td class="font-semibold">Ghế VP M1108 (1108-01 / 1108-03)</td>
+              <td class="text-right">2</td>
+              <td class="text-right font-semibold">12</td>
+              <td class="text-right font-bold">20.167.000 đ</td>
+              <td class="text-right">9,23%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:9.23%; background:var(--chart2);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">3</td>
+              <td class="font-semibold">Ghế VP M1040</td>
+              <td class="text-right">1</td>
+              <td class="text-right font-semibold">10</td>
+              <td class="text-right font-bold">18.000.000 đ</td>
+              <td class="text-right">8,24%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:8.24%; background:var(--chart3);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">4</td>
+              <td class="font-semibold">Ghế VP M1110 D-01</td>
+              <td class="text-right">2</td>
+              <td class="text-right font-semibold">9</td>
+              <td class="text-right font-bold">17.532.000 đ</td>
+              <td class="text-right">8,03%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:8.03%; background:var(--chart4);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">5</td>
+              <td class="font-semibold">Ghế VP M1111-01 (Khung xám)</td>
+              <td class="text-right">1</td>
+              <td class="text-right font-semibold">7</td>
+              <td class="text-right font-bold">17.356.500 đ</td>
+              <td class="text-right">7,95%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:7.95%; background:var(--chart1);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">6</td>
+              <td class="font-semibold">Ghế VP M1106 (D04 / 1106F-D02)</td>
+              <td class="text-right">3</td>
+              <td class="text-right font-semibold">7</td>
+              <td class="text-right font-bold">16.690.500 đ</td>
+              <td class="text-right">7,64%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:7.64%; background:var(--chart2);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">7</td>
+              <td class="font-semibold">Ghế VP M1090 (Không bánh xe)</td>
+              <td class="text-right">2</td>
+              <td class="text-right font-semibold">9</td>
+              <td class="text-right font-bold">12.136.500 đ</td>
+              <td class="text-right">5,56%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:5.56%; background:var(--chart3);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">8</td>
+              <td class="font-semibold">Ghế VP 1105F (Có gác chân)</td>
+              <td class="text-right">1</td>
+              <td class="text-right font-semibold">1</td>
+              <td class="text-right font-bold">6.619.800 đ</td>
+              <td class="text-right">3,03%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:3.03%; background:var(--chart4);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">9</td>
+              <td class="font-semibold">Ghế VP M1104 (01 / 02)</td>
+              <td class="text-right">2</td>
+              <td class="text-right font-semibold">2</td>
+              <td class="text-right font-bold">5.655.000 đ</td>
+              <td class="text-right">2,59%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:2.59%; background:var(--chart1);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">10</td>
+              <td class="font-semibold">Ghế VP M1071</td>
+              <td class="text-right">2</td>
+              <td class="text-right font-semibold">3</td>
+              <td class="text-right font-bold">5.227.408 đ</td>
+              <td class="text-right">2,39%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:2.39%; background:var(--chart2);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">11</td>
+              <td class="font-semibold">Ghế VP M1085</td>
+              <td class="text-right">1</td>
+              <td class="text-right font-semibold">2</td>
+              <td class="text-right font-bold">5.110.000 đ</td>
+              <td class="text-right">2,34%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:2.34%; background:var(--chart3);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">12</td>
+              <td class="font-semibold">Ghế VP M1027</td>
+              <td class="text-right">1</td>
+              <td class="text-right font-semibold">1</td>
+              <td class="text-right font-bold">3.778.000 đ</td>
+              <td class="text-right">1,73%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:1.73%; background:var(--chart4);"></div></div></td>
+            </tr>
+            <tr>
+              <td class="muted">13</td>
+              <td class="font-semibold">Ghế VP M1101_D - 02</td>
+              <td class="text-right">1</td>
+              <td class="text-right font-semibold">2</td>
+              <td class="text-right font-bold">2.873.000 đ</td>
+              <td class="text-right">1,32%</td>
+              <td><div class="bar-bg" style="margin:0;"><div class="bar-fill" style="width:1.32%; background:var(--chart1);"></div></div></td>
+            </tr>
+            <tr class="total-row">
+              <td></td>
+              <td>Tổng cộng (13 dòng sản phẩm)</td>
+              <td class="text-right">19 đơn</td>
+              <td class="text-right">132</td>
+              <td class="text-right">218.443.708 đ</td>
+              <td class="text-right">100%</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Product SKU Detail Table -->
+      <div id="prod-sku" class="table-wrap" style="display:none;">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Tên vật tư (Chi tiết SKU trên ERP)</th>
+              <th class="text-right">Số lượng</th>
+              <th class="text-right">Doanh thu chốt</th>
+              <th class="text-right">Tỷ trọng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="muted">1</td><td>GHẾ VP M1102_ T (M102T06A147M285CTB1CC2)</td><td class="text-right font-semibold">25</td><td class="text-right font-semibold">36.757.500 đ</td><td class="text-right">16,83%</td></tr>
+            <tr><td class="muted">2</td><td>GHẾ VP M1102_ D (M102D06A146M210BB3PC1)</td><td class="text-right font-semibold">31</td><td class="text-right font-semibold">35.306.500 đ</td><td class="text-right">16,16%</td></tr>
+            <tr><td class="muted">3</td><td>GHẾ VP M1040 (M04005A74NAG00BC22C0)</td><td class="text-right font-semibold">10</td><td class="text-right font-semibold">18.000.000 đ</td><td class="text-right">8,24%</td></tr>
+            <tr><td class="muted">4</td><td>Ghế VP 1108-03 (M10805A32NAG00BC9C0)</td><td class="text-right font-semibold">11</td><td class="text-right font-semibold">17.567.000 đ</td><td class="text-right">8,04%</td></tr>
+            <tr><td class="muted">5</td><td>Ghế VP M1110 D-01 (M110D10A30M1385CB1CC8)</td><td class="text-right font-semibold">9</td><td class="text-right font-semibold">17.532.000 đ</td><td class="text-right">8,03%</td></tr>
+            <tr><td class="muted">6</td><td>Ghế VP M1111-01 (M111X10A90M1385CTB1CC2)- khung xám</td><td class="text-right font-semibold">7</td><td class="text-right font-semibold">17.356.500 đ</td><td class="text-right">7,95%</td></tr>
+            <tr><td class="muted">7</td><td>Ghế VP M1106_D04 (M106D09A72M110BB3PC1)</td><td class="text-right font-semibold">6</td><td class="text-right font-semibold">13.909.800 đ</td><td class="text-right">6,37%</td></tr>
+            <tr><td class="muted">8</td><td>Ghế VP M1090 (M09004A00NAG00BL42C0)-không bánh xe</td><td class="text-right font-semibold">9</td><td class="text-right font-semibold">12.136.500 đ</td><td class="text-right">5,56%</td></tr>
+            <tr><td class="muted">9</td><td>GHẾ VP M1102_ T 03 (M102T05A147NAG00BC2C0)</td><td class="text-right font-semibold">6</td><td class="text-right font-semibold">7.569.000 đ</td><td class="text-right">3,46%</td></tr>
+            <tr><td class="muted">10</td><td>Ghế VP 1105F (M10510A59M6685CB1AC1) - Có gác chân</td><td class="text-right font-semibold">1</td><td class="text-right font-semibold">6.619.800 đ</td><td class="text-right">3,03%</td></tr>
+            <tr><td class="muted">11</td><td>Ghế VP M1102_ D 02 (M102D10A146M210BB4PC1)</td><td class="text-right font-semibold">4</td><td class="text-right font-semibold">6.270.000 đ</td><td class="text-right">2,87%</td></tr>
+            <tr><td class="muted">12</td><td>Ghế VP M1071 (M07109A63M285CB1AC1)</td><td class="text-right font-semibold">3</td><td class="text-right font-semibold">5.227.408 đ</td><td class="text-right">2,39%</td></tr>
+            <tr><td class="muted">13</td><td>Ghế VP M1085 (M08510A121M4385CTB1CC8)</td><td class="text-right font-semibold">2</td><td class="text-right font-semibold">5.110.000 đ</td><td class="text-right">2,34%</td></tr>
+            <tr><td class="muted">14</td><td>GHẾ VP M1027 (M02709A63M485CB1AC1)</td><td class="text-right font-semibold">1</td><td class="text-right font-semibold">3.778.000 đ</td><td class="text-right">1,73%</td></tr>
+            <tr><td class="muted">15</td><td>Ghế VP M1104-01 (M10410A30M1310BB3PC1)</td><td class="text-right font-semibold">1</td><td class="text-right font-semibold">3.090.000 đ</td><td class="text-right">1,41%</td></tr>
+            <tr><td class="muted">16</td><td>Ghế VP M1101_D - 02 (M101D06A30M210BB3PC1)</td><td class="text-right font-semibold">2</td><td class="text-right font-semibold">2.873.000 đ</td><td class="text-right">1,32%</td></tr>
+            <tr><td class="muted">17</td><td>Ghế VP 1106F - D02 (M106D10A12M1385CB1AC1) - Có gác chân</td><td class="text-right font-semibold">1</td><td class="text-right font-semibold">2.780.700 đ</td><td class="text-right">1,27%</td></tr>
+            <tr><td class="muted">18</td><td>Ghế VP 1108-01 (M10810A73M485CB1AC1)</td><td class="text-right font-semibold">1</td><td class="text-right font-semibold">2.600.000 đ</td><td class="text-right">1,19%</td></tr>
+            <tr><td class="muted">19</td><td>Ghế VP M1104-02 (M10409A30M1385CB1CC8)</td><td class="text-right font-semibold">1</td><td class="text-right font-semibold">2.565.000 đ</td><td class="text-right">1,17%</td></tr>
+            <tr><td class="muted">20</td><td>GHẾ VP M1102_ D (M102D06A146M285CB5CC8)</td><td class="text-right font-semibold">1</td><td class="text-right font-semibold">1.395.000 đ</td><td class="text-right">0,64%</td></tr>
+            <tr class="total-row">
+              <td></td>
+              <td>Tổng cộng (20 mã SKU)</td>
+              <td class="text-right">132</td>
+              <td class="text-right">218.443.708 đ</td>
+              <td class="text-right">100%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 2 & 3: Budget KPI vs. Customer Region (3 Miền) + Sales Rep -->
     <section class="grid-2">
-      <!-- Section 1 -->
+      <!-- Section 2: Ads Budget -->
       <div class="card">
         <div class="section-head">
           <div>
-            <h2>1. Chi phí Ads vs. KPI Ngân sách từng kênh</h2>
+            <h2>2. Chi phí Ads vs. KPI Ngân sách từng kênh</h2>
             <div class="muted">Đối chiếu thực chi từ bảng chi tiết chiến dịch (FB + GG)</div>
           </div>
         </div>
@@ -239,37 +494,48 @@
         </div>
       </div>
 
-      <!-- Section 2 -->
+      <!-- Section 3: Region (Customer 3 Miền + Sales Team) -->
       <div class="card">
         <div class="section-head">
           <div>
-            <h2>2. Cơ cấu Doanh thu &amp; Đơn bán theo Khu vực / Sale</h2>
-            <div class="muted">Tổng doanh thu: 218.443.708 đ (19 đơn SO trên ERP)</div>
+            <h2>3. Cơ cấu Doanh thu theo Khu vực Khách hàng (3 Miền) &amp; Sales</h2>
+            <div class="muted">Phân loại 3 miền theo Địa điểm giao hàng thực tế trong file SO ERP</div>
           </div>
         </div>
 
-        <div style="margin-bottom: 12px;">
-          <div class="flex-between" style="font-size: 12px; margin-bottom: 4px;">
-            <span class="font-semibold">Hồ Chí Minh (16 đơn thuần The Mia)</span>
-            <span><strong>139.046.908 đ</strong> <span class="muted">(63,65%)</span></span>
+        <!-- 3-Region Customer Breakdown (Bắc - Trung - Nam) -->
+        <h3>A. Theo Khu vực Khách hàng (Bắc – Trung – Nam)</h3>
+        <div style="margin-bottom: 14px;">
+          <div class="flex-between" style="font-size: 12px; margin-bottom: 3px;">
+            <span class="font-semibold">Miền Nam <span class="muted" style="font-weight:400;">(17 đơn · 130 SP: TP.HCM, Bình Dương, Vĩnh Long)</span></span>
+            <span><strong>213.193.008 đ</strong> <span class="muted">(97,60%)</span></span>
           </div>
-          <div class="bar-bg bar-bg-lg"><div class="bar-fill" style="width: 63.65%; background: var(--chart1);"></div></div>
+          <div class="bar-bg bar-bg-lg"><div class="bar-fill" style="width: 97.60%; background: var(--chart1);"></div></div>
 
-          <div class="flex-between" style="font-size: 12px; margin-bottom: 4px;">
-            <span class="font-semibold">Hà Nội (1 đơn thuần + 2 đơn ghép Dự án Chiya)</span>
-            <span><strong>79.396.800 đ</strong> <span class="muted">(36,35%)</span></span>
+          <div class="flex-between" style="font-size: 12px; margin-bottom: 3px;">
+            <span class="font-semibold">Miền Trung <span class="muted" style="font-weight:400;">(1 đơn · 1 SP: Đà Nẵng – SO 265220)</span></span>
+            <span><strong>2.780.700 đ</strong> <span class="muted">(1,27%)</span></span>
           </div>
-          <div class="bar-bg bar-bg-lg" style="margin-bottom: 0;"><div class="bar-fill" style="width: 36.35%; background: var(--chart3);"></div></div>
+          <div class="bar-bg bar-bg-lg"><div class="bar-fill" style="width: 1.27%; background: var(--chart2);"></div></div>
+
+          <div class="flex-between" style="font-size: 12px; margin-bottom: 3px;">
+            <span class="font-semibold">Miền Bắc <span class="muted" style="font-weight:400;">(1 đơn · 1 SP: Hà Nội – SO 265119)</span></span>
+            <span><strong>2.470.000 đ</strong> <span class="muted">(1,13%)</span></span>
+          </div>
+          <div class="bar-bg bar-bg-lg" style="margin-bottom: 0;"><div class="bar-fill" style="width: 1.13%; background: var(--chart3);"></div></div>
         </div>
 
+        <!-- Sales Rep Breakdown -->
+        <h3 style="margin-top: 14px;">B. Theo Khu vực Nhân sự Sale phụ trách</h3>
         <div class="table-wrap">
           <table>
             <thead>
               <tr>
                 <th>Nhân sự Sale</th>
-                <th>Khu vực</th>
-                <th class="text-right">Số đơn</th>
+                <th>Team</th>
+                <th class="text-right">Đơn SO</th>
                 <th class="text-right">Doanh số The Mia</th>
+                <th>Địa bàn giao khách</th>
               </tr>
             </thead>
             <tbody>
@@ -278,49 +544,54 @@
                 <td>HCM</td>
                 <td class="text-right">15 đơn</td>
                 <td class="text-right font-semibold">136.289.500 đ</td>
+                <td class="muted">13 Nam · 1 Trung · 1 Bắc</td>
               </tr>
               <tr>
-                <td class="font-semibold">Vũ Thị Đào <span class="muted" style="font-weight:400;">(Dự án Chiya)</span></td>
+                <td class="font-semibold">Vũ Thị Đào <span class="muted" style="font-weight:400;">(Chiya)</span></td>
                 <td>HN</td>
-                <td class="text-right">2 đơn ghép</td>
+                <td class="text-right">2 ghép</td>
                 <td class="text-right font-semibold">72.777.000 đ</td>
+                <td class="muted">Vĩnh Long (Miền Nam)</td>
               </tr>
               <tr>
                 <td class="font-semibold">Nguyễn Đức Minh</td>
                 <td>HN</td>
                 <td class="text-right">1 đơn</td>
                 <td class="text-right font-semibold">6.619.800 đ</td>
+                <td class="muted">TP.HCM (Miền Nam)</td>
               </tr>
               <tr>
                 <td class="font-semibold">Phạm Trọng Nghĩa</td>
                 <td>HCM</td>
                 <td class="text-right">1 đơn</td>
                 <td class="text-right font-semibold">2.757.408 đ</td>
+                <td class="muted">TP.HCM (Miền Nam)</td>
               </tr>
               <tr>
                 <td class="muted">Vũ Hoàng Yến (Edu)</td>
                 <td class="muted">HN</td>
                 <td class="text-right muted">0 đơn</td>
                 <td class="text-right muted">0 đ</td>
+                <td class="muted">—</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="sub-box">
-          <div class="font-semibold" style="margin-bottom: 2px;">Ghi chú đơn hàng SO (ERP)</div>
+          <div class="font-semibold" style="margin-bottom: 2px;">Lưu ý đối chiếu Khu vực Sales vs. Khách hàng</div>
           <div class="muted">
-            <strong style="color: var(--fg);">17 đơn</strong> thuần The Mia (16 HCM · 1 HN) + <strong style="color: var(--fg);">2 đơn</strong> ghép The City · The Mia (SO 265222, SO 265223 – dự án Chiya).
+            2 đơn dự án Chiya của <strong style="color:var(--fg);">Vũ Thị Đào (team HN)</strong> và 1 đơn của <strong style="color:var(--fg);">Nguyễn Đức Minh (team HN)</strong> đều giao hàng tại <strong style="color:var(--fg);">Miền Nam</strong> (Vĩnh Long &amp; TP.HCM), trong khi <strong style="color:var(--fg);">Lê Minh Khoa (team HCM)</strong> chốt 1 đơn giao Hà Nội và 1 đơn giao Đà Nẵng.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: Comparison Table -->
+    <!-- Section 4: Comparison Table — Actual Messages vs. Qualified Leads -->
     <section class="card">
       <div class="section-head">
         <div>
-          <h2>3. Bảng so sánh Số Tin nhắn thực nhận được &amp; Số Lead có nhu cầu</h2>
+          <h2>4. Bảng so sánh Số Tin nhắn thực nhận được &amp; Số Lead có nhu cầu</h2>
           <div class="muted">Đối chiếu giữa lượng tin nhắn thực tế (hội thoại Chatbot) và số Lead xác định có nhu cầu sau khi trò chuyện</div>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:8px;">
@@ -335,7 +606,7 @@
             <tr>
               <th>Kênh tiếp nhận</th>
               <th class="text-right">Tin nhắn thực nhận được<br /><span style="font-weight:400;">(Hội thoại Chatbot)</span></th>
-              <th class="text-right">Số Lead có nhu cầu<br /><span style="font-weight:400;">(Sau trò chuyện)</span></th>
+              <th class="text-right">Số Lead<br /><span style="font-weight:400;">(Có nhu cầu)</span></th>
               <th class="text-right">Tỷ lệ Tin nhắn → Lead</th>
               <th>Ghi chú &amp; Đối chiếu</th>
             </tr>
@@ -403,11 +674,11 @@
       </div>
     </section>
 
-    <!-- Section 4: Campaigns -->
+    <!-- Section 5: Campaigns -->
     <section class="card">
       <div class="section-head">
         <div>
-          <h2>4. Chi tiết các Chiến dịch Quảng cáo (11 chiến dịch)</h2>
+          <h2>5. Chi tiết các Chiến dịch Quảng cáo (11 chiến dịch)</h2>
           <div class="muted">Số liệu khớp 100% với tổng chi phí 30.093.756 đ trên báo cáo</div>
         </div>
         <div class="tab-group no-print">
@@ -571,20 +842,27 @@
       </div>
     </section>
 
-    <!-- Section 5 -->
+    <!-- Section 6 -->
     <section class="card">
-      <h2>5. Nhận định nhanh phục vụ báo cáo</h2>
+      <h2>6. Nhận định nhanh phục vụ báo cáo</h2>
       <ul class="takeaways">
-        <li><strong>Tốc độ giải ngân ngân sách:</strong> Tổng chi mới đạt <strong>64,98%</strong> KPI (<strong>30,09 tr / 46,31 tr</strong>). Trong đó Facebook gần chạm trần (<strong>95,51%</strong>, còn 547k), còn Google Ads mới chạy <strong>54,08%</strong> (còn dư hơn <strong>15,67 tr</strong> cần rà soát đẩy ngân sách cho các nhóm Search hiệu quả).</li>
+        <li><strong>Cơ cấu sản phẩm &amp; Khu vực khách hàng:</strong> Dòng ghế <strong>M1102</strong> dẫn đầu doanh thu với <strong>87,30 tr</strong> (67 cái, chiếm <strong>39,96%</strong>), theo sau là M1108 (20,17 tr), M1040 (18,00 tr), M1110 (17,53 tr) và M1111 (17,36 tr). Xét theo địa chỉ giao hàng thực tế, khách hàng <strong>Miền Nam chiếm 97,60%</strong> doanh thu (213,19 tr / 17 đơn), Miền Trung 1,27% (Đà Nẵng) và Miền Bắc 1,13% (Hà Nội).</li>
+        <li><strong>Tốc độ giải ngân ngân sách &amp; CIR:</strong> Tổng chi <strong>30.093.756 đ</strong> (đạt <strong>64,98%</strong> KPI ngân sách 46,31 tr), tỷ lệ chi phí / doanh thu đạt <strong>13,78%</strong> (ROAS <strong>7,26x</strong>). Facebook đã tiêu <strong>95,51%</strong> ngân sách, trong khi Google Ads mới chạy <strong>54,08%</strong> (còn dư 15,67 tr).</li>
         <li><strong>Tin nhắn thực &amp; Chuyển đổi sang Lead có nhu cầu:</strong> Facebook Fanpage The Mia tiếp nhận <strong>96</strong> hội thoại thực tế và chuyển đổi được <strong>28</strong> Lead có nhu cầu (<strong>29,17%</strong>). Zalo OA RPB ghi nhận <strong>95</strong> hội thoại dùng chung và mang về <strong>48</strong> Lead có nhu cầu cho The Mia (<strong>63,16%</strong> tổng Lead).</li>
-        <li><strong>Hiệu quả chuyển đổi &amp; Doanh thu:</strong> CIR đạt <strong>13,78%</strong> (ROAS <strong>7,26x</strong>), tiến độ doanh số hiện đạt <strong>26,89%</strong> KPI tháng (<strong>218,44 tr / 812,5 tr</strong>).</li>
-        <li><strong>Tối ưu chiến dịch &amp; CSKH:</strong> Giảm/tắt nhóm CPA cao (FB <em>Ghế Boss I</em>: 159k; GG <em>Brand Miền Nam</em>: 385k), dồn ngân sách vào các nhóm hiệu quả (FB <em>Giải pháp tổng thể</em>, <em>Ghế lãnh đạo</em>; GG <em>Search Miền Bắc</em>) và đẩy nhanh tốc độ Sales gọi lại SĐT từ Chatbot Facebook.</li>
+        <li><strong>Doanh thu báo giá &amp; Chốt đơn:</strong> Doanh thu báo giá ghi nhận <strong>310.500.000 đ</strong> (Sale: <strong>Nguyễn Đức Minh</strong>); tổng doanh thu chốt đạt <strong>218.443.708 đ</strong> (<strong>26,89%</strong> KPI tháng 812,5 tr).</li>
       </ul>
     </section>
 
   </div>
 
   <script>
+    function switchProdTab(tab) {
+      document.getElementById('prod-family').style.display = (tab === 'family') ? 'block' : 'none';
+      document.getElementById('prod-sku').style.display = (tab === 'sku') ? 'block' : 'none';
+      document.getElementById('ptab-family').className = (tab === 'family') ? 'btn btn-primary' : 'btn';
+      document.getElementById('ptab-sku').className = (tab === 'sku') ? 'btn btn-primary' : 'btn';
+    }
+
     function switchTab(tab) {
       const fb = document.getElementById('panel-fb');
       const gg = document.getElementById('panel-gg');
@@ -656,31 +934,45 @@
     function copyMarkdownReport() {
       const md = `# BÁO CÁO KẾT QUẢ DIGITAL MARKETING — THE MIA (01/11 – 25/11/2026)
 
-## 1. Doanh thu & Số đơn bán
-- **Tổng doanh thu (Doanh số chốt):** 218.443.708 đ (KPI: 812.500.000 đ — Đạt **26,89%**, thiếu 594.056.292 đ)
-- **Phân bổ khu vực:**
-  - HCM: 139.046.908 đ (63,65%) — Lê Minh Khoa: 136.289.500 đ; Phạm Trọng Nghĩa: 2.757.408 đ
-  - HN: 79.396.800 đ (36,35%) — Vũ Thị Đào (Dự án Chiya): 72.777.000 đ; Nguyễn Đức Minh: 6.619.800 đ
-- **Tổng số đơn bán (SO ERP):** **19 đơn** (17 đơn thuần The Mia [16 HCM, 1 HN] + 2 đơn ghép The City · The Mia [HN - Dự án Chiya])
+## Tổng quan chỉ số team MKT theo dõi
+- **Mục tiêu doanh số:** 812.500.000 đ (Đạt **26,89%**, thiếu 594.056.292 đ)
+- **Khu vực khách hàng (3 miền):** Miền Nam: 213.193.008 đ (97,60% - 17 đơn) | Miền Trung: 2.780.700 đ (1,27% - 1 đơn) | Miền Bắc: 2.470.000 đ (1,13% - 1 đơn)
+- **Chi phí Ads ~ % Chi phí / Doanh thu (CIR):** 30.093.756 đ ~ **13,78%** (KPI ngân sách: 46.312.500 đ — đạt 64,98%)
+- **Số Lead (Có nhu cầu):** **76 lần** (Facebook: 28 lần · Zalo OA: 48 lần)
+- **Doanh thu báo giá:** **310.500.000 đ** (Sale: Nguyễn Đức Minh)
+- **Doanh thu chốt:** **218.443.708 đ** (19 đơn SO · 132 sản phẩm · ROAS 7,26x)
+
+## 1. Break Doanh thu theo Dòng sản phẩm
+| Dòng sản phẩm | Số đơn | Số lượng | Doanh thu chốt | Tỷ trọng |
+|---|---:|---:|---:|---:|
+| Ghế VP M1102 (D / D02 / T / T03) | 6 | 67 | 87.298.000 đ | 39,96% |
+| Ghế VP M1108 (1108-01 / 1108-03) | 2 | 12 | 20.167.000 đ | 9,23% |
+| Ghế VP M1040 | 1 | 10 | 18.000.000 đ | 8,24% |
+| Ghế VP M1110 D-01 | 2 | 9 | 17.532.000 đ | 8,03% |
+| Ghế VP M1111-01 (Khung xám) | 1 | 7 | 17.356.500 đ | 7,95% |
+| Ghế VP M1106 (D04 / 1106F-D02) | 3 | 7 | 16.690.500 đ | 7,64% |
+| Ghế VP M1090 (Không bánh xe) | 2 | 9 | 12.136.500 đ | 5,56% |
+| Ghế VP 1105F (Có gác chân) | 1 | 1 | 6.619.800 đ | 3,03% |
+| Ghế VP M1104 (01 / 02) | 2 | 2 | 5.655.000 đ | 2,59% |
+| Ghế VP M1071 | 2 | 3 | 5.227.408 đ | 2,39% |
+| Ghế VP M1085 | 1 | 2 | 5.110.000 đ | 2,34% |
+| Ghế VP M1027 | 1 | 1 | 3.778.000 đ | 1,73% |
+| Ghế VP M1101_D - 02 | 1 | 2 | 2.873.000 đ | 1,32% |
+| **Tổng cộng** | **19** | **132** | **218.443.708 đ** | **100%** |
 
 ## 2. Chi phí Ads từng kênh vs. KPI Ngân sách
-| Kênh | Thực chi | KPI Ngân sách | % Đạt NS | Còn lại | Leads / Ch.đổi | CPA TB |
-|---|---:|---:|---:|---:|---:|---:|
-| Facebook Ads | 11.640.231 đ | 12.187.500 đ | 95,51% | 547.269 đ | 173 | 67.285 đ |
-| Google Ads | 18.453.525 đ | 34.125.000 đ | 54,08% | 15.671.475 đ | 185 | 99.749 đ |
-| **Tổng cộng** | **30.093.756 đ** | **46.312.500 đ** | **64,98%** | **16.218.744 đ** | **358** | **84.061 đ** |
+| Kênh | Thực chi | KPI Ngân sách | % Đạt NS | Còn lại |
+|---|---:|---:|---:|---:|
+| Facebook Ads | 11.640.231 đ | 12.187.500 đ | 95,51% | 547.269 đ |
+| Google Ads | 18.453.525 đ | 34.125.000 đ | 54,08% | 15.671.475 đ |
+| **Tổng cộng** | **30.093.756 đ** | **46.312.500 đ** | **64,98%** | **16.218.744 đ** |
 
-- **CIR (Ads / Doanh số):** 13,78%
-- **ROAS (Doanh số / Ads):** 7,26x
-
-## 3. Bảng so sánh Tin nhắn thực nhận được & Số Lead có nhu cầu
-| Kênh tiếp nhận | Tin nhắn thực nhận được (Hội thoại) | Số Lead có nhu cầu | Tỷ lệ Tin nhắn → Lead |
+## 3. So sánh Tin nhắn thực nhận được & Số Lead có nhu cầu
+| Kênh tiếp nhận | Tin nhắn thực (Hội thoại) | Số Lead có nhu cầu | Tỷ lệ Tin nhắn → Lead |
 |---|---:|---:|---:|
 | Facebook (Fanpage The Mia) | 96 hội thoại *(FB Ads: 162 tin)* | 28 lần | 29,17% |
 | Zalo OA (RPB dùng chung) | 95 hội thoại* | 48 lần | 50,53%* |
-| **Tổng cộng** | **191 hội thoại** | **76 lần** | **39,79%** |
-
-*Ghi chú: 95 hội thoại là tổng lượng chat trên kênh Zalo OA dùng chung toàn RPB (chưa tách riêng brand trên dashboard).*`;
+| **Tổng cộng** | **191 hội thoại** | **76 lần** | **39,79%** |`;
 
       navigator.clipboard.writeText(md).then(() => {
         const btn = document.getElementById('copyBtn');
